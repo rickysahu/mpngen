@@ -108,7 +108,6 @@ export default class extends React.Component {
           </Paper>
         </Formsy.Form>
       </MuiThemeProvider>
-      <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(formdata, null, 2)}</pre>
       <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(this.state, null, 2)}</pre>
 
     </div>

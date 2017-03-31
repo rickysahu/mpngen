@@ -23,7 +23,7 @@ let styles = {
     padding: '1rem',
   },
   switchStyle: {
-    marginBottom: 16,
+    marginTop: 16,
   },
   submitStyle: {
     marginTop: 32,
@@ -57,6 +57,7 @@ export default class extends React.Component {
               validationError={q.validationError}
               hintText={q.hintText}
               fullWidth={true}
+              style={q.style}
               floatingLabelText={q.label} />
           } else if (q.formType === "autocomplete") {
             return <FormsyAutoComplete
@@ -69,6 +70,32 @@ export default class extends React.Component {
               openOnFocus={true}
               filter={AutoComplete.fuzzyFilter}
               floatingLabelText={q.label} />
+          } else if (q.formType === "radio") {
+            return <div>
+              <h4 style={{lineHeight: '1.5rem'}}>{q.label}</h4>
+              <FormsyRadioGroup
+                name={this.props.id + "-"+ q.name}
+                label={q.label} >
+                  {q.choices.map(function(choice){
+                    return <FormsyRadio
+                      value={choice.value}
+                      label={choice.label}
+                      style={styles.switchStyle}
+                    />
+                  })}
+                </FormsyRadioGroup>
+              </div>
+          } else if (q.formType === "checkbox") {
+            return <div>
+              <h4 style={{lineHeight: '1.5rem'}}>{q.label}</h4>
+              {q.choices.map(function(choice){
+                return <FormsyCheckbox
+                  name={this.props.id+"-"+q.name+"-"+choice.value}
+                  label={choice.label}
+                  style={styles.switchStyle}
+                />
+              }.bind(this))}
+            </div>
           } else {
             return <div>{q.formType}</div>
           }

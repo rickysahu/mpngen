@@ -78,20 +78,73 @@ let sections = [
         required: true,
         dataSource: countries
       },
+      {
+        formType: 'radio',
+        name: 'covered-entity',
+        label: 'If your organization is a HIPAA covered entity, is the data your entity collects HIPAA protected?',
+        mpnText: 'Select one of the following statements to be inserted into the privacy notice:',
+        choices: [
+          {
+            value: `not_hipaa_entity`,
+            label: `We are not a HIPAA covered entity`,
+            mpnText: ``
+          },
+          {
+            value: `not_hipaa_protected`,
+            label: `NO, data is not HIPAA protected`,
+            mpnText: `Please note that the health data we collect as part of this [insert name of technology] are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply`
+          },
+          {
+            value: `hipaa_protected`,
+            label: `YES, data is HIPAA protected`,
+            mpnText: `Some of the health data we collect as part of this [insert name of technology product] also are protected by HIPAA. Read our HIPAA Notice of Privacy Practices [embed link or popup] for more information.`
+          }
+        ]
+      }
     ],
-  },
-  {
-    id: 'hipaa',
-    title: 'HIPAA Policy',
-    questions: [
-
-    ]
   },
   {
     id: 'usage',
     title: 'Data Usage',
     questions: [
-
+      {
+        formType: 'checkbox',
+        name: 'internal',
+        required: true,
+        header: 'Use: How we use your data internally',
+        label: 'We collect and use your identifiable data:',
+        choices: [
+          {
+            label:`To provide the primary service of the app or technology`,
+            value:`primary`,
+          },
+          {
+            label:`To develop marketing materials for our products`,
+            value:`marketing`,
+          },
+          {
+            label:`To conduct scientific research`,
+            value:`research`,
+          },
+          {
+            label:`For company operations (e.g., quality control or fraud detection)`,
+            value:`operations`,
+          },
+          {
+            label:`To develop and improve new and current products and services (e.g., analytics)`,
+            value:`improve`,
+          },
+        ]
+      },
+      {
+        formType: 'text',
+        inputType: 'text',
+        name: 'internal-other',
+        label: 'Other',
+        style: {marginTop: '-1rem'},
+        hintText: 'To do ...',
+        required: false
+      },
     ]
   },
   {

@@ -7,7 +7,6 @@ import Checkbox from 'material-ui/Checkbox'
 
 let sections = [
   {id: 'company', name: 'Company', isDone: true},
-  {id: 'hipaa', name: 'HIPAA', isDone: true},
   {id: 'usage', name: 'Data Usage', isDone: true},
   {id: 'sharing', name: 'Data Sharing', isDone: true},
   {id: 'user', name: 'User Options', isDone: true},
