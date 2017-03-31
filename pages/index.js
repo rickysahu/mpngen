@@ -13,8 +13,9 @@ Formsy.addValidationRule('minLengthOrEmpty', (values, value) => {
   return value.length > 0
 })
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-
 import TableOfContents from '../components/TableOfContents';
+import Section from '../components/Section';
+import formdata from '../fixtures/formdata';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 try {
@@ -27,7 +28,7 @@ let styles = {
   },
   paperStyle: {
     maxWidth: 500,
-    minWidth: 500,
+    minWidth: 300,
     margin: 'auto',
     padding: '1rem',
   },
@@ -83,60 +84,19 @@ export default class extends React.Component {
       <h1>MPN Generator</h1>
       <TableOfContents />
       <MuiThemeProvider muiTheme={getMuiTheme()}>
-          <Formsy.Form
-            onValid={this.enableButton.bind(this)}
-            onInvalid={this.disableButton.bind(this)}
-            onValidSubmit={this.submitForm}
-            onInvalidSubmit={this.notifyFormError}
-            ref="form" >
-          <Paper style={styles.paperStyle}>
-            <Toolbar style={styles.toolbarInPaper}>
-              <ToolbarGroup>
-                <ToolbarTitle text="Company Info" />
-              </ToolbarGroup>
-            </Toolbar>
-            <FormsyCheckbox
-              name="agree"
-              label="Do you agree to disagree?"
-              style={styles.switchStyle} />
-            <FormsyToggle
-              name="toggle"
-              label="Toggle"
-              style={styles.switchStyle} />
-            <FormsyRadioGroup name="shipSpeed" defaultSelected="not_light">
-              <FormsyRadio
-                value="light"
-                label="prepare for light speed"
-                style={styles.switchStyle}
-              />
-              <FormsyRadio
-                value="not_light"
-                label="light speed too slow"
-                style={styles.switchStyle}
-              />
-            </FormsyRadioGroup>
-            <FormsyText
-              name="name"
-              validations="isExisty"
-              required
-              validationError={wordsError}
-              hintText="What is your name?"
-              floatingLabelText="Name" />
-            <FormsyText
-              name="age"
-              required
-              validations="isNumeric"
-              validationError={numericError}
-              hintText="Are you a wrinkly?"
-              floatingLabelText="Age (optional)" />
-          </Paper>
+        <Formsy.Form
+          onValid={this.enableButton.bind(this)}
+          onInvalid={this.disableButton.bind(this)}
+          onValidSubmit={this.submitForm}
+          onInvalidSubmit={this.notifyFormError}
+          ref="form" >
+          {
+            formdata.map(function(section){
+              return <Section {...section} />
+            })
+          }
           <br />
           <br />
-
-          <Paper style={styles.paperStyle}>
-            <div id='user'>user</div>
-          </Paper>
-
           <Paper style={styles.paperStyle}>
           <div style={{color: 'red'}}>{!this.state.canSubmit ? "Some fields are unanswered. All fields are required." : ""}</div>
           <RaisedButton
@@ -148,6 +108,7 @@ export default class extends React.Component {
           </Paper>
         </Formsy.Form>
       </MuiThemeProvider>
+      <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(formdata, null, 2)}</pre>
       <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(this.state, null, 2)}</pre>
 
     </div>
@@ -176,3 +137,47 @@ export default class extends React.Component {
 //   floatingLabelText="URL"
 //   updateImmediately
 // />
+
+
+
+// <Paper style={styles.paperStyle}>
+//   <Toolbar style={styles.toolbarInPaper}>
+//     <ToolbarGroup>
+//       <ToolbarTitle text="Company Info" />
+//     </ToolbarGroup>
+//   </Toolbar>
+//   <FormsyCheckbox
+//     name="agree"
+//     label="Do you agree to disagree?"
+//     style={styles.switchStyle} />
+//   <FormsyToggle
+//     name="toggle"
+//     label="Toggle"
+//     style={styles.switchStyle} />
+//   <FormsyRadioGroup name="shipSpeed" defaultSelected="not_light">
+//     <FormsyRadio
+//       value="light"
+//       label="prepare for light speed"
+//       style={styles.switchStyle}
+//     />
+//     <FormsyRadio
+//       value="not_light"
+//       label="light speed too slow"
+//       style={styles.switchStyle}
+//     />
+//   </FormsyRadioGroup>
+//   <FormsyText
+//     name="name"
+//     validations="isExisty"
+//     required
+//     validationError={wordsError}
+//     hintText="What is your name?"
+//     floatingLabelText="Name" />
+//   <FormsyText
+//     name="age"
+//     required
+//     validations="isNumeric"
+//     validationError={numericError}
+//     hintText="Are you a wrinkly?"
+//     floatingLabelText="Age (optional)" />
+// </Paper>
