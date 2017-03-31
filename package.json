@@ -1,12 +1,18 @@
 {
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 3030",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 3030"
   },
   "dependencies": {
+    "formsy-material-ui": "^0.5.5",
+    "formsy-react": "^0.19.2",
+    "material-ui": "^0.17.1",
     "next": "^2.0.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-tap-event-plugin": "^2.0.1",
+    "react-validation": "^2.10.9",
+    "validator": "^7.0.0"
   }
 }
