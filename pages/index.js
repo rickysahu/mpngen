@@ -12,15 +12,24 @@ Formsy.addValidationRule('minLengthOrEmpty', (values, value) => {
   console.log(value.length > 0, value)
   return value.length > 0
 })
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+
+import TableOfContents from '../components/TableOfContents';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+try {
+  injectTapEventPlugin();
+} catch (e) {}
 
 let styles = {
+  toolbarInPaper: {
+    margin: '-1rem -1rem 1rem -1rem'
+  },
   paperStyle: {
-    width: 300,
+    maxWidth: 500,
+    minWidth: 500,
     margin: 'auto',
-    padding: 20,
+    padding: '1rem',
   },
   switchStyle: {
     marginBottom: 16,
@@ -70,28 +79,30 @@ export default class extends React.Component {
 
   render () {
     let { wordsError, numericError, urlError, requiredError, isDefaultRequiredValue } = errorMessages;
-    return <div style={{fontFamily: 'Roboto, Helvetica, Sans-Serif'}}>
+    return <div style={{fontFamily: 'system-ui, Roboto, Helvetica, Sans-Serif'}}>
       <h1>MPN Generator</h1>
-
+      <TableOfContents />
       <MuiThemeProvider muiTheme={getMuiTheme()}>
           <Formsy.Form
             onValid={this.enableButton.bind(this)}
             onInvalid={this.disableButton.bind(this)}
             onValidSubmit={this.submitForm}
             onInvalidSubmit={this.notifyFormError}
-            ref="form"
-          >
+            ref="form" >
           <Paper style={styles.paperStyle}>
+            <Toolbar style={styles.toolbarInPaper}>
+              <ToolbarGroup>
+                <ToolbarTitle text="Company Info" />
+              </ToolbarGroup>
+            </Toolbar>
             <FormsyCheckbox
               name="agree"
               label="Do you agree to disagree?"
-              style={styles.switchStyle}
-            />
+              style={styles.switchStyle} />
             <FormsyToggle
               name="toggle"
               label="Toggle"
-              style={styles.switchStyle}
-            />
+              style={styles.switchStyle} />
             <FormsyRadioGroup name="shipSpeed" defaultSelected="not_light">
               <FormsyRadio
                 value="light"
@@ -108,31 +119,34 @@ export default class extends React.Component {
               name="name"
               validations="isExisty"
               required
-              validationError={wordsError,isDefaultRequiredValue}
+              validationError={wordsError}
               hintText="What is your name?"
-              floatingLabelText="Name"
-            />
+              floatingLabelText="Name" />
             <FormsyText
               name="age"
               required
               validations="isNumeric"
               validationError={numericError}
               hintText="Are you a wrinkly?"
-              floatingLabelText="Age (optional)"
-            />
-            </Paper>
-            <br />
-            <br />
-            <Paper style={styles.paperStyle}>
-            <div style={{color: 'red'}}>{!this.state.canSubmit ? "All fields are required" : ""}</div>
-            <RaisedButton
-              style={styles.submitStyle}
-              type="submit"
-              label="Submit"
-              disabled={!this.state.canSubmit}
-            />
-            </Paper>
-          </Formsy.Form>
+              floatingLabelText="Age (optional)" />
+          </Paper>
+          <br />
+          <br />
+
+          <Paper style={styles.paperStyle}>
+            <div id='user'>user</div>
+          </Paper>
+
+          <Paper style={styles.paperStyle}>
+          <div style={{color: 'red'}}>{!this.state.canSubmit ? "Some fields are unanswered. All fields are required." : ""}</div>
+          <RaisedButton
+            style={styles.submitStyle}
+            type="submit"
+            label="Submit"
+            disabled={!this.state.canSubmit}
+          />
+          </Paper>
+        </Formsy.Form>
       </MuiThemeProvider>
       <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(this.state, null, 2)}</pre>
 
