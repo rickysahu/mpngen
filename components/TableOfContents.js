@@ -8,7 +8,7 @@ import Checkbox from 'material-ui/Checkbox'
 let sections = [
   {id: 'company', name: 'Company', isDone: true},
   {id: 'usage', name: 'Data Usage', isDone: true},
-  {id: 'sharing', name: 'Data Sharing', isDone: true},
+  {id: 'security', name: 'Data Security', isDone: true},
   {id: 'user', name: 'User Options', isDone: true},
   {id: 'policy', name: 'Policy Changes', isDone: true}
 ]
@@ -51,13 +51,11 @@ export default class extends React.Component {
             </MuiThemeProvider>
           </span>
           <a href={`#${sectionArray.id}`} style={{verticalAlign: '.4rem', textDecoration:'none', color: '#000'}}>
-            {`${sectionArray.name}`}
+            {` ${sectionArray.name}`}
           </a>
         </div>
       })}
       </div>
-      <br/>
-      <br/>
     </div>
   }
 

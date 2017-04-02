@@ -145,20 +145,445 @@ let sections = [
         hintText: 'To do ...',
         required: false
       },
+      {
+        formType: 'checkbox',
+        name: 'share',
+        required: true,
+        header: 'Share: How we share your data externally with other companies or entities',
+        label: 'We share your identifiable data:',
+        choices: [
+          {
+            label:`To provide the primary service of the app or technology `,
+            value:`primary`,
+          },
+          {
+            label:`To conduct scientific research`,
+            value:`research`,
+          },
+          {
+            label:`For company operations (e.g., quality control or fraud detection)`,
+            value:`operations`,
+          },
+          {
+            label:`To develop and improve new and current products and services (e.g., analytics)`,
+            value:`improve`,
+          },
+          {
+            label:`We DO NOT share your identifiable data`,
+            value:`not`,
+          },
+        ]
+      },
+      {
+        formType: 'text',
+        inputType: 'text',
+        name: 'share-other',
+        label: 'Other',
+        style: {marginTop: '-1rem'},
+        hintText: 'To do ...',
+        required: false
+      },
+      {
+        formType: 'checkbox',
+        name: 'shareanonymous',
+        required: true,
+        label: 'We share share your data AFTER removing identifiers (note that remaining data may not be anonymous):',
+        choices: [
+          {
+            label:`For the primary purposes of the app or technology`,
+            value:`primary`,
+          },
+          {
+            label:`To conduct scientific research`,
+            value:`research`,
+          },
+          {
+            label:`For company operations (e.g., quality control or fraud detection)`,
+            value:`operations`,
+          },
+          {
+            label:`To develop and improve new and current products and services (e.g., analytics)`,
+            value:`improve`,
+          },
+          {
+            label:`We DO NOT share your data after removing identifiers`,
+            value:`not`,
+          },
+        ]
+      },
+      {
+        formType: 'text',
+        inputType: 'text',
+        name: 'shareanonymous-other',
+        label: 'Other',
+        style: {marginTop: '-1rem'},
+        hintText: 'To do ...',
+        required: false
+      },
+      {
+        formType: 'radio',
+        name: 'sell',
+        required: true,
+        header: 'Sell: Who we sell your data to',
+        label: 'We sell your identifiable data to data brokers, marketing, advertising networks, or analytics firms.',
+        choices: [
+          {
+            label:`Yes`,
+            value:`yes`,
+          },
+          {
+            label:`Yes; only with your permission`,
+            value:`permissioned`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+        ]
+      },
+      {
+        formType: 'radio',
+        name: 'sellanonymous',
+        required: true,
+        label: 'We sell your data AFTER removing identifiers (note that remaining data may not be anonymous) to data brokers, marketing, advertising networks, or analytics firms.',
+        choices: [
+          {
+            label:`Yes`,
+            value:`yes`,
+          },
+          {
+            label:`Yes; only with your permission`,
+            value:`permissioned`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+        ]
+      },
     ]
   },
   {
-    id: 'sharing',
-    title: 'Data Sharing',
+    id: 'security',
+    title: 'Data Security',
     questions: [
-
+      {
+        formType: 'radio',
+        name: 'storeondevice',
+        required: true,
+        header: `Store: How we store your data`,
+        label: 'Are your data stored on the device?',
+        choices: [
+          {
+            label:`Yes`,
+            value:`yes`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+        ]
+      },
+      {
+        formType: 'radio',
+        name: 'storeoffdevice',
+        required: true,
+        label: 'Are your data stored outside the device at our company or through a third party?',
+        choices: [
+          {
+            label:`Yes`,
+            value:`yes`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+        ]
+      },
+      {
+        formType: 'radio',
+        name: 'encryptdevice',
+        required: true,
+        header: `Encryption: How we encrypt your data`,
+        label: 'Does the app or technology use encryption to encrypt your data in the device or app?',
+        choices: [
+          {
+            label:`Yes, by default`,
+            value:`default`,
+          },
+          {
+            label:`Yes, when you take certain steps (click to learn how)`,
+            value:`steps`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+          {
+            label:`N/A`,
+            value:`na`,
+          },
+        ]
+      },
+      {
+        formType: 'radio',
+        name: 'encryptserver',
+        required: true,
+        label: 'Does the app or technology use encryption to encrypt your data when stored on our company servers or with an outside cloud computing services provider?',
+        choices: [
+          {
+            label:`Yes, by default`,
+            value:`default`,
+          },
+          {
+            label:`Yes, when you take certain steps (click to learn how)`,
+            value:`steps`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+          {
+            label:`N/A`,
+            value:`na`,
+          },
+        ]
+      },
+      {
+        formType: 'radio',
+        name: 'encrypttransmit',
+        required: true,
+        label: 'Does the app or technology use encryption to encrypt your data while it is transmitted?',
+        choices: [
+          {
+            label:`Yes, by default`,
+            value:`default`,
+          },
+          {
+            label:`Yes, when you take certain steps (click to learn how)`,
+            value:`steps`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+          {
+            label:`N/A`,
+            value:`na`,
+          },
+        ]
+      },
+      {
+        formType: 'radio',
+        name: 'privacyapps-access',
+        required: true,
+        header: 'Privacy: How this technology accesses other data',
+        label: 'Will this technology or app request access to other device data or applications, such as your phone’s camera, photos, or contacts?',
+        choices: [
+          {
+            label:`Yes, only with your permission.`,
+            value:`yes`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+        ]
+      },
+      {
+        formType: 'checkbox',
+        name: 'privacyapps-devices',
+        required: true,
+        label: 'It connects to ...',
+        choices: [
+          {
+            label:`Camera`,
+            value:`camera`,
+          },
+          {
+            label:`Photo`,
+            value:`photo`,
+          },
+          {
+            label:`Contacts`,
+            value:`contacts`,
+          },
+          {
+            label:`Location services`,
+            value:`location`,
+          },
+          {
+            label:`Microphone`,
+            value:`microphone`,
+          },
+          {
+            label:`Health monitoring devices`,
+            value:`health`,
+          },
+          {
+            label:`Other`,
+            value:`other`,
+          },
+        ]
+      },
+      // {
+      //   formType: 'text',
+      //   inputType: 'text',
+      //   name: 'privacyapps-other',
+      //   label: 'Other',
+      //   style: {marginTop: '-1rem'},
+      //   hintText: 'To do ...',
+      //   required: false
+      // },
+      {
+        formType: 'text',
+        name: 'privacyapps-setting',
+        label: 'Here is how you can check your settings, including permissions set as a default...',
+        hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
+        required: true,
+        multiLine: true,
+        style: {marginTop: '-1rem', paddingTop: '1rem'},
+        validations: 'isDefaultRequiredValue',
+        validationError: errorMessages.isDefaultRequiredValue,
+      },
+      {
+        formType: 'checkbox',
+        name: 'privacyapps-social',
+        required: true,
+        label: 'Does this technology or app allow you to share the collected data with your social media accounts, like Facebook?',
+        choices: [
+          {
+            label: `Yes`,
+            value: `yes`
+          },
+          {
+            label:`Yes, only with your permission.`,
+            value:`yes`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+        ]
+      },
+      {
+        formType: 'text',
+        name: 'privacyapps-setting',
+        label: 'Here is how you can check your settings, including permissions set as a default...',
+        hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
+        required: true,
+        multiLine: true,
+        style: {marginTop: '-1rem', paddingTop: '1rem'},
+        validations: {},
+        validationError: errorMessages.isDefaultRequiredValue,
+      },
     ]
   },
   {
     id: 'user',
     title: 'User Options',
     questions: [
-
+      {
+        formType: 'radio',
+        name: 'useraccess-available',
+        required: true,
+        header: 'User Options: What you can do with the data that we collect',
+        label: 'Can you access, edit, share, or delete the data we have about you?',
+        choices: [
+          {
+            label:`Yes.`,
+            value:`yes`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+        ]
+      },
+      {
+        formType: 'checkbox',
+        name: 'useraccess-type',
+        required: true,
+        label: 'You can...',
+        choices: [
+          {
+            label:`Access your data`,
+            value:`access`,
+          },
+          {
+            label:`Edit your data`,
+            value:`edit`,
+          },
+          {
+            label:`Share your data`,
+            value:`share`,
+          },
+          {
+            label:`Delete your data`,
+            value:`delete`,
+          },
+        ]
+      },
+      {
+        formType: 'text',
+        name: 'useraccess-setting',
+        label: 'Here is how to do this...',
+        hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
+        required: true,
+        multiLine: true,
+        style: {marginTop: '-1rem', paddingTop: '1rem'},
+        validations: {},
+        validationError: errorMessages.isDefaultRequiredValue,
+      },
+      {
+        formType: 'radio',
+        name: 'useraccess-available',
+        required: true,
+        header: 'Deactivation: What happens to your data when your account is deactivated',
+        label: 'When your account is deactivated/terminated by you or the company, your data are...',
+        choices: [
+          {
+            label:`Deleted immediately.`,
+            value:`delete`,
+          },
+          {
+            label:`Deleted after [x] years.`,
+            value:`years`,
+          },
+          {
+            label:`Permanently retained and used.`,
+            value:`permanent`,
+          },
+          {
+            label:`Retained and used until you request deletion`,
+            value:`request`,
+          },
+        ]
+      },
+      {
+        formType: 'text',
+        name: 'useraccess-policy',
+        header: 'Policy Changes: How we will notify you if our privacy policy changes',
+        label: 'Here is how to do this...',
+        hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
+        required: true,
+        multiLine: true,
+        style: {marginTop: '-1rem', paddingTop: '1rem'},
+        validations: {},
+        validationError: errorMessages.isDefaultRequiredValue,
+      },
+      {
+        formType: 'text',
+        name: 'useraccess-policy',
+        header: 'Breach: How we will notify you and protect your data in case of an improper disclosure',
+        label: 'Describe your company policy',
+        hintText: 'Company name] complies with all applicable laws regarding breaches. Describe how the company will protect consumers’ data in the case of a breach and provide link to section in privacy policy.',
+        required: true,
+        multiLine: true,
+        style: {marginTop: '-1rem', paddingTop: '1rem'},
+        validations: {},
+        validationError: errorMessages.isDefaultRequiredValue,
+      },
     ]
   },
   {

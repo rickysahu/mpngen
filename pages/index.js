@@ -27,7 +27,7 @@ let styles = {
     margin: '-1rem -1rem 1rem -1rem'
   },
   paperStyle: {
-    maxWidth: 500,
+    maxWidth: 600,
     minWidth: 300,
     margin: 'auto',
     padding: '1rem',
@@ -55,6 +55,10 @@ export default class extends React.Component {
     this.state = {}
   }
 
+  // shouldComponentUpdate({children}, nextState){
+  //   return this.props.children !== children;
+  // }
+
   getMyData () {
     this.setState({formData: this.refs.form.getModel()});
   }
@@ -81,8 +85,11 @@ export default class extends React.Component {
   render () {
     let { wordsError, numericError, urlError, requiredError, isDefaultRequiredValue } = errorMessages;
     return <div style={{fontFamily: 'system-ui, Roboto, Helvetica, Sans-Serif'}}>
-      <h1>MPN Generator</h1>
-      <TableOfContents />
+      <div style={{textAlign:'center'}}>
+        <h1 style={{fontWeight: 400}}>MPN GEN</h1>
+        <h2 style={{fontWeight: 400}}>Model Privacy Notice Generator</h2>
+        <TableOfContents />
+      </div>
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <Formsy.Form
           onValid={this.enableButton.bind(this)}
