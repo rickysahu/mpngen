@@ -40,81 +40,38 @@ let styles = {
   },
 }
 
-let errorMessages = {
-  isDefaultRequiredValue: 'Field is required',
-  wordsError: "Please only use letters",
-  numericError: "Please provide a number",
-  requiredError: "This field is required",
-  urlError: "Please provide a valid URL",
-}
-
 export default class extends React.Component {
 
   constructor (props) {
     super(props)
+    this.setStateFromChild = this.setStateFromChild.bind(this);
     this.state = {}
   }
 
+  setStateFromChild (childId, childState) {
+    this.state[childId] = childState
+    this.setState(this.state)
+  }
   // shouldComponentUpdate({children}, nextState){
   //   return this.props.children !== children;
   // }
-
-  getMyData () {
-    this.setState({formData: this.refs.form.getModel()});
-  }
-
-  enableButton() {
-    console.log('benabled')
-    this.getMyData()
-    this.setState({
-      canSubmit: true,
-    });
-  }
-
-  disableButton() {
-    this.getMyData()
-    this.setState({
-      canSubmit: false,
-    });
-  }
 
   static getInitialprops ({req}) {
     return {server: req ? true : false}
   }
 
   render () {
-    let { wordsError, numericError, urlError, requiredError, isDefaultRequiredValue } = errorMessages;
     return <div style={{fontFamily: 'system-ui, Roboto, Helvetica, Sans-Serif'}}>
       <div style={{textAlign:'center'}}>
         <h1 style={{fontWeight: 400}}>MPN GEN</h1>
         <h2 style={{fontWeight: 400}}>Model Privacy Notice Generator</h2>
         <TableOfContents />
       </div>
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
-        <Formsy.Form
-          onValid={this.enableButton.bind(this)}
-          onInvalid={this.disableButton.bind(this)}
-          onValidSubmit={this.submitForm}
-          onInvalidSubmit={this.notifyFormError}
-          ref="form" >
           {
             formdata.map(function(section){
-              return <Section {...section} />
-            })
+              return <Section {...section} setParentState={this.setStateFromChild}/>
+            }.bind(this))
           }
-          <br />
-          <br />
-          <Paper style={styles.paperStyle}>
-          <div style={{color: 'red'}}>{!this.state.canSubmit ? "Some fields are unanswered. All fields are required." : ""}</div>
-          <RaisedButton
-            style={styles.submitStyle}
-            type="submit"
-            label="Submit"
-            disabled={!this.state.canSubmit}
-          />
-          </Paper>
-        </Formsy.Form>
-      </MuiThemeProvider>
       <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(this.state, null, 2)}</pre>
 
     </div>
@@ -122,27 +79,18 @@ export default class extends React.Component {
 }
 
 
-// <FormsyAutoComplete
-//   name="frequency-auto-complete"
-//   required
-//   floatingLabelText="How often do you?"
-//   dataSource={[
-//     'Never',
-//     'Every Night',
-//     'Weeknights'
-//   ]}
+// <br />
+// <br />
+// <Paper style={styles.paperStyle}>
+// <div style={{color: 'red'}}>{!this.state.canSubmit ? "Some fields are unanswered. All fields are required." : ""}</div>
+// <RaisedButton
+//   style={styles.submitStyle}
+//   type="submit"
+//   label="Submit"
+//   disabled={!this.state.canSubmit}
 // />
+// </Paper>
 
-
-// <FormsyText
-//   name="url"
-//   validations="isUrl"
-//   validationError={urlError}
-//   required
-//   hintText="http://www.example.com"
-//   floatingLabelText="URL"
-//   updateImmediately
-// />
 
 
 

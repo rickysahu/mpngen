@@ -21,8 +21,8 @@ let sections = [
         label: 'Legal entity name',
         hintText: '1upHealth, Inc.',
         required: true,
-        validations: 'isDefaultRequiredValue',
-        validationError: errorMessages.wordsError,
+        validations: {},
+        validationError: errorMessages.requiredError,
       },
       {
         formType: 'text',
@@ -134,16 +134,11 @@ let sections = [
             label:`To develop and improve new and current products and services (e.g., analytics)`,
             value:`improve`,
           },
+          {
+            label:`Other`,
+            value:`other`,
+          },
         ]
-      },
-      {
-        formType: 'text',
-        inputType: 'text',
-        name: 'internal-other',
-        label: 'Other',
-        style: {marginTop: '-1rem'},
-        hintText: 'To do ...',
-        required: false
       },
       {
         formType: 'checkbox',
@@ -172,16 +167,11 @@ let sections = [
             label:`We DO NOT share your identifiable data`,
             value:`not`,
           },
+          {
+            label:`Other`,
+            value:`other`,
+          },
         ]
-      },
-      {
-        formType: 'text',
-        inputType: 'text',
-        name: 'share-other',
-        label: 'Other',
-        style: {marginTop: '-1rem'},
-        hintText: 'To do ...',
-        required: false
       },
       {
         formType: 'checkbox',
@@ -209,16 +199,11 @@ let sections = [
             label:`We DO NOT share your data after removing identifiers`,
             value:`not`,
           },
+          {
+            label:`Other`,
+            value:`other`,
+          },
         ]
-      },
-      {
-        formType: 'text',
-        inputType: 'text',
-        name: 'shareanonymous-other',
-        label: 'Other',
-        style: {marginTop: '-1rem'},
-        hintText: 'To do ...',
-        required: false
       },
       {
         formType: 'radio',
@@ -426,15 +411,6 @@ let sections = [
           },
         ]
       },
-      // {
-      //   formType: 'text',
-      //   inputType: 'text',
-      //   name: 'privacyapps-other',
-      //   label: 'Other',
-      //   style: {marginTop: '-1rem'},
-      //   hintText: 'To do ...',
-      //   required: false
-      // },
       {
         formType: 'text',
         name: 'privacyapps-setting',
@@ -589,13 +565,6 @@ let sections = [
   {
     id: 'policy',
     title: 'Policy Changes',
-    questions: [
-
-    ]
-  },
-  {
-    id: 'hipaa',
-    title: 'HIPAA Policy',
     questions: [
 
     ]
