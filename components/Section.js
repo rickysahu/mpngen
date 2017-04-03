@@ -74,17 +74,24 @@ export default class extends React.Component {
   enableButton() {
     this.getMyData()
     let invalidQuestions = this.getInvalidQuestions(this.refs.form.getModel())
+    console.log(invalidQuestions)
     if (invalidQuestions.length === 0){
-      this.props.setParentState(this.props.id, this.refs.form.getModel())
-      this.setState({
-        canSubmit: true,
-      });      
+      let stateForParent = {form: this.refs.form.getModel(), canSubmit: true}
+      this.props.setParentState(this.props.id, stateForParent)
+      this.setState({canSubmit: true});
+    } else {
+      let stateForParent = {form: this.refs.form.getModel(), canSubmit: false}
+      this.props.setParentState(this.props.id, stateForParent)
+      this.setState({canSubmit: false})
     }
   }
 
   disableButton() {
     this.getMyData()
-    console.log(this.getInvalidQuestions(this.refs.form.getModel()))
+    if (this.state.canSubmit) {
+      let stateForParent = {form: this.refs.form.getModel(), canSubmit: false}
+      this.props.setParentState(this.props.id, stateForParent)
+    }
     this.setState({
       canSubmit: false,
     });

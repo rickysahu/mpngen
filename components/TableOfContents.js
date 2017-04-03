@@ -4,14 +4,15 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
 import Checkbox from 'material-ui/Checkbox'
+import formdata from '../fixtures/formdata';
 
-let sections = [
-  {id: 'company', name: 'Company', isDone: true},
-  {id: 'usage', name: 'Data Usage', isDone: true},
-  {id: 'security', name: 'Data Security', isDone: true},
-  {id: 'user', name: 'User Options', isDone: true},
-  {id: 'policy', name: 'Policy Changes', isDone: true}
-]
+// let sections = [
+//   {id: 'company', name: 'Company', isDone: true},
+//   {id: 'usage', name: 'Data Usage', isDone: true},
+//   {id: 'security', name: 'Data Security', isDone: true},
+//   {id: 'user', name: 'User Options', isDone: true},
+//   {id: 'policy', name: 'Policy Changes', isDone: true}
+// ]
 
 export default class extends React.Component {
 
@@ -43,21 +44,30 @@ export default class extends React.Component {
       <span id="company"></span>
       <div id="sticky-holder" style={{display:'none', height:'3rem'}}>&nbsp;</div>
       <div id="sticky" style={{ marginLeft:'-10px', padding: '1rem .5rem', position: 'relative', width: '100%', top:0, backgroundColor: '#fff', zIndex: 100}}>
-      {sections.map(function(sectionArray){
+      {formdata.map(function(section){
+        let parentSection = this.props.parentState[section.id]
+        let canSubmit = false
+        if(parentSection){
+          canSubmit = this.props.parentState[section.id].canSubmit
+          if(typeof canSubmit === 'undefined'){
+            canSubmit = false
+          }
+        }
         return <div style={{ display: 'inline-block', paddingRight: '1rem' }}>
           <span>
             <MuiThemeProvider muiTheme={getMuiTheme()}>
-              <Checkbox checked={sectionArray.isDone} label={''} style={{ display: 'inline-block', width: '2rem' }} />
+              <Checkbox checked={canSubmit} label={''} style={{ display: 'inline-block', width: '2rem' }} />
             </MuiThemeProvider>
           </span>
-          <a href={`#${sectionArray.id}`} style={{verticalAlign: '.4rem', textDecoration:'none', color: '#000'}}>
-            {` ${sectionArray.name}`}
+          <a href={`#${section.id}`} style={{verticalAlign: '.4rem', textDecoration:'none', color: '#000'}}>
+            {` ${section.title}`}
           </a>
         </div>
-      })}
+      }.bind(this))}
       </div>
+      {JSON.stringify(this.props)}
     </div>
   }
 
 }
-// <a href={`#${sectionArray.id}`}>&#9711; {sectionArray.name}</a>&nbsp;
+// <a href={`#${section.id}`}>&#9711; {section.name}</a>&nbsp;

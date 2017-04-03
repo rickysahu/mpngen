@@ -17,7 +17,7 @@ let sections = [
     questions: [
       {
         formType: 'text',
-        name: 'legal-name',
+        name: 'legalName',
         label: 'Legal entity name',
         hintText: '1upHealth, Inc.',
         required: true,
@@ -26,7 +26,7 @@ let sections = [
       },
       {
         formType: 'text',
-        name: 'privacy-policy-link',
+        name: 'privacyPolicyLink',
         label: 'Link to full privacy policy',
         hintText: 'https://1uphealth.care/privacy-policy',
         required: true,
@@ -35,7 +35,7 @@ let sections = [
       },
       {
         formType: 'text',
-        name: 'contact-link',
+        name: 'contactLink',
         label: 'Link online contact or coment form',
         hintText: 'https://1uphealth.care/contact-us',
         required: true,
@@ -54,7 +54,7 @@ let sections = [
       {
         formType: 'text',
         inputType: 'tel',
-        name: 'contact-number',
+        name: 'contactNumber',
         label: 'Company phone number',
         hintText: '347-422-7242',
         required: true,
@@ -80,7 +80,7 @@ let sections = [
       },
       {
         formType: 'radio',
-        name: 'covered-entity',
+        name: 'coveredEntity',
         label: 'If your organization is a HIPAA covered entity, is the data your entity collects HIPAA protected?',
         mpnText: 'Select one of the following statements to be inserted into the privacy notice:',
         choices: [
@@ -175,7 +175,7 @@ let sections = [
       },
       {
         formType: 'checkbox',
-        name: 'shareanonymous',
+        name: 'shareAnonymous',
         required: true,
         label: 'We share your data AFTER removing identifiers (note that remaining data may not be anonymous):',
         choices: [
@@ -228,7 +228,7 @@ let sections = [
       },
       {
         formType: 'radio',
-        name: 'sellanonymous',
+        name: 'sellAnonymous',
         required: true,
         label: 'We sell your data AFTER removing identifiers (note that remaining data may not be anonymous) to data brokers, marketing, advertising networks, or analytics firms.',
         choices: [
@@ -254,7 +254,7 @@ let sections = [
     questions: [
       {
         formType: 'radio',
-        name: 'storeondevice',
+        name: 'storeOndevice',
         required: true,
         header: `Store: How we store your data`,
         label: 'Are your data stored on the device?',
@@ -271,7 +271,7 @@ let sections = [
       },
       {
         formType: 'radio',
-        name: 'storeoffdevice',
+        name: 'storeOffdevice',
         required: true,
         label: 'Are your data stored outside the device at our company or through a third party?',
         choices: [
@@ -287,7 +287,7 @@ let sections = [
       },
       {
         formType: 'radio',
-        name: 'encryptdevice',
+        name: 'encryptDevice',
         required: true,
         header: `Encryption: How we encrypt your data`,
         label: 'Does the app or technology use encryption to encrypt your data in the device or app?',
@@ -312,7 +312,7 @@ let sections = [
       },
       {
         formType: 'radio',
-        name: 'encryptserver',
+        name: 'encryptServer',
         required: true,
         label: 'Does the app or technology use encryption to encrypt your data when stored on our company servers or with an outside cloud computing services provider?',
         choices: [
@@ -336,7 +336,7 @@ let sections = [
       },
       {
         formType: 'radio',
-        name: 'encrypttransmit',
+        name: 'encryptTransmit',
         required: true,
         label: 'Does the app or technology use encryption to encrypt your data while it is transmitted?',
         choices: [
@@ -360,7 +360,7 @@ let sections = [
       },
       {
         formType: 'radio',
-        name: 'privacyapps-access',
+        name: 'privacyappsAccess',
         required: true,
         header: 'Privacy: How this technology accesses other data',
         label: 'Will this technology or app request access to other device data or applications, such as your phone’s camera, photos, or contacts?',
@@ -377,7 +377,7 @@ let sections = [
       },
       {
         formType: 'checkbox',
-        name: 'privacyapps-devices',
+        name: 'privacyappsDevices',
         required: true,
         label: 'It connects to ...',
         choices: [
@@ -413,7 +413,7 @@ let sections = [
       },
       {
         formType: 'text',
-        name: 'privacyapps-setting',
+        name: 'privacyappsSetting',
         label: 'Here is how you can check your settings, including permissions set as a default...',
         hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
         required: true,
@@ -423,8 +423,8 @@ let sections = [
         validationError: errorMessages.isDefaultRequiredValue,
       },
       {
-        formType: 'checkbox',
-        name: 'privacyapps-social',
+        formType: 'radio',
+        name: 'privacyappsSocial',
         required: true,
         label: 'Does this technology or app allow you to share the collected data with your social media accounts, like Facebook?',
         choices: [
@@ -434,7 +434,7 @@ let sections = [
           },
           {
             label:`Yes, only with your permission.`,
-            value:`yes`,
+            value:`permission`,
           },
           {
             label:`No`,
@@ -444,7 +444,7 @@ let sections = [
       },
       {
         formType: 'text',
-        name: 'privacyapps-setting',
+        name: 'privacyappsSetting',
         label: 'Here is how you can check your settings, including permissions set as a default...',
         hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
         required: true,
@@ -461,7 +461,7 @@ let sections = [
     questions: [
       {
         formType: 'radio',
-        name: 'useraccess-available',
+        name: 'useraccessAvailable',
         required: true,
         header: 'User Options: What you can do with the data that we collect',
         label: 'Can you access, edit, share, or delete the data we have about you?',
@@ -478,7 +478,7 @@ let sections = [
       },
       {
         formType: 'checkbox',
-        name: 'useraccess-type',
+        name: 'useraccessType',
         required: true,
         label: 'You can...',
         choices: [
@@ -502,7 +502,7 @@ let sections = [
       },
       {
         formType: 'text',
-        name: 'useraccess-setting',
+        name: 'useraccessSetting',
         label: 'Here is how to do this...',
         hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
         required: true,
@@ -513,7 +513,7 @@ let sections = [
       },
       {
         formType: 'radio',
-        name: 'useraccess-available',
+        name: 'useraccessAvailable',
         required: true,
         header: 'Deactivation: What happens to your data when your account is deactivated',
         label: 'When your account is deactivated/terminated by you or the company, your data are...',
@@ -538,7 +538,7 @@ let sections = [
       },
       {
         formType: 'text',
-        name: 'useraccess-policy',
+        name: 'useraccessPolicy',
         header: 'Policy Changes: How we will notify you if our privacy policy changes',
         label: 'Here is how to do this...',
         hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
@@ -550,7 +550,7 @@ let sections = [
       },
       {
         formType: 'text',
-        name: 'useraccess-notification',
+        name: 'useraccessNotification',
         header: 'Breach: How we will notify you and protect your data in case of an improper disclosure',
         label: 'Describe your company policy',
         hintText: 'Company name] complies with all applicable laws regarding breaches. Describe how the company will protect consumers’ data in the case of a breach and provide link to section in privacy policy.',

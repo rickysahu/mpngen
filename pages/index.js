@@ -66,7 +66,7 @@ export default class extends React.Component {
       <div style={{textAlign:'center'}}>
         <h1 style={{fontWeight: 400}}>MPN GEN</h1>
         <h2 style={{fontWeight: 400}}>Model Privacy Notice Generator</h2>
-        <TableOfContents />
+        <TableOfContents parentState={this.state}/>
       </div>
           {
             formdata.map(function(section){
