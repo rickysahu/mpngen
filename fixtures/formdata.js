@@ -177,7 +177,7 @@ let sections = [
         formType: 'checkbox',
         name: 'shareanonymous',
         required: true,
-        label: 'We share share your data AFTER removing identifiers (note that remaining data may not be anonymous):',
+        label: 'We share your data AFTER removing identifiers (note that remaining data may not be anonymous):',
         choices: [
           {
             label:`For the primary purposes of the app or technology`,
