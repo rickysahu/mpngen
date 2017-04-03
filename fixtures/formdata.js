@@ -58,7 +58,7 @@ let sections = [
         label: 'Company phone number',
         hintText: '347-422-7242',
         required: true,
-        validations: {matchRegexp: /^(1?)(-| ?)(\()?([0-9]{3})(\)|-| |\)-|\) )?([0-9]{3})(-| )?([0-9]{4}|[0-9]{4})$/},
+        validations: {matchRegexp: /^(\+)?([0-9]{0,2}?)(-| ?)(\()?([0-9]{3})(\)|-| |\)-|\) )?([0-9]{3})(-| )?([0-9]{4}|[0-9]{4})$/},
         validationError: errorMessages.phoneError,
       },
       {
