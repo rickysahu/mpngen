@@ -52,6 +52,7 @@ export default class extends React.Component {
     this.state[childId] = childState
     this.setState(this.state)
   }
+
   // shouldComponentUpdate({children}, nextState){
   //   return this.props.children !== children;
   // }

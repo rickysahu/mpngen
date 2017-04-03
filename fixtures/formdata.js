@@ -419,7 +419,7 @@ let sections = [
         required: true,
         multiLine: true,
         style: {marginTop: '-1rem', paddingTop: '1rem'},
-        validations: 'isDefaultRequiredValue',
+        validations: {},
         validationError: errorMessages.isDefaultRequiredValue,
       },
       {
@@ -550,7 +550,7 @@ let sections = [
       },
       {
         formType: 'text',
-        name: 'useraccess-policy',
+        name: 'useraccess-notification',
         header: 'Breach: How we will notify you and protect your data in case of an improper disclosure',
         label: 'Describe your company policy',
         hintText: 'Company name] complies with all applicable laws regarding breaches. Describe how the company will protect consumers’ data in the case of a breach and provide link to section in privacy policy.',

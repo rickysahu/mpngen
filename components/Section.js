@@ -41,13 +41,14 @@ export default class extends React.Component {
   // shouldComponentUpdate({children}, nextState){
   //   return this.props.children !== children;
   // }
+
   getMyData () {
-    this.props.setParentState(this.props.id, this.refs.form.getModel())
     this.setState({formData: this.refs.form.getModel()});
   }
 
   enableButton() {
     this.getMyData()
+    this.props.setParentState(this.props.id, this.refs.form.getModel())
     this.setState({
       canSubmit: true,
     });
@@ -120,6 +121,7 @@ export default class extends React.Component {
                   <h4 style={{lineHeight: '1.5rem'}}>{q.label}</h4>
                   <FormsyRadioGroup
                     name={this.props.id + "-"+ q.name}
+                    required
                     label={q.label} >
                       {q.choices.map(function(choice){
                         return <FormsyRadio
