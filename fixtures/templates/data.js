@@ -53,7 +53,7 @@ ${state['data-shareAnonymous-not'] ? '- We DO NOT share your data after removing
 <table>
   <tr>
     <th><strong>Sold Data<strong></th>
-    <th style='width:30%;'><strong>Do we sell?<strong></th>
+    <th style='width:40%;'><strong>Do we sell?<strong></th>
   </tr>
   <tr>
     <td><strong>We sell your identifiable data (10) to data brokers (11), marketing, advertising networks, or analytics firms.</strong></td>

@@ -8,7 +8,7 @@ function f (state) {
 <table>
   <tr>
     <th><strong>Stored Data<strong></th>
-    <th style='width:30%;'><strong>Is it stored?<strong></th>
+    <th style='width:40%;'><strong>Is it stored?<strong></th>
   </tr>
   <tr>
     <td><strong>Are your data stored on the device? </strong></td>
@@ -25,7 +25,7 @@ function f (state) {
 <table>
   <tr>
     <th><strong>Encrypted Data<strong></th>
-    <th style='width:30%;'><strong>Is it encrypted?<strong></th>
+    <th style='width:40%;'><strong>Is it encrypted?<strong></th>
   </tr>
   <tr>
     <td><strong>Does the app or technology use encryption to encrypt your data in the device or app? </strong></td>
@@ -40,25 +40,26 @@ function f (state) {
     <td>${state['security-encryptTransmit'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptTransmit'] == 'no' ? 'No' : '' } ${state['security-encryptTransmit'] == 'na' ? 'N/A' : '' } ${state['security-encryptTransmit'] == 'steps' ? 'Yes, when you take certain steps (click to learn how)' : '' }</td>
   </tr>
 </table> 
-
+<br></br>  
 
 ## Privacy: How this technology accesses other data
-<table>
+<table style='vertical-align: top'>
   <tr>
     <th><strong>Other Data<strong></th>
-    <th style='width:30%;'><strong>Is it accessed?<strong></th>
+    <th style='width:40%;'><strong>Is it accessed?<strong></th>
   </tr>
   <tr>
     <td><strong>Will this technology or app request access to other device data or applications, such as your phone’s camera, photos, or contacts? </strong></td>    
 ${typeof state['security-privacyappsAccess'] !== 'undefined' && state['security-privacyappsAccess'] !== '' ? (state['security-privacyappsAccess'] == 'permissioned' ? `<td>
 <div>
   Yes, only with your permission. It connects to... 
-${state['security-privacyappsDevices-camera'] ? '<li>Camera</li>' : ''} ${state['security-privacyappsDevices-photo'] ? '<li>Photo</li>' : ''} ${state['security-privacyappsDevices-contacts'] ? '<li>Contacts</li>' : ''} ${state['security-privacyappsDevices-location'] ? '<li>Location</li>' : ''} ${state['security-privacyappsDevices-microphone'] ? '<li>Microphone</li>' : ''} ${state['security-privacyappsDevices-health'] ? '<li>Health monitoring devices</li>' : ''}  ${state['security-privacyappsDevices-other-text'] ? `<li>${state['security-privacyappsDevices-other-text']}</li>` : ''}
+${state['security-privacyappsDevices-camera'] ? '<li>Camera</li>' : ''} ${state['security-privacyappsDevices-photo'] ? '<li>Photo</li>' : ''} ${state['security-privacyappsDevices-contacts'] ? '<li>Contacts</li>' : ''} ${state['security-privacyappsDevices-location'] ? '<li>Location</li>' : ''} ${state['security-privacyappsDevices-microphone'] ? '<li>Microphone</li>' : ''} ${state['security-privacyappsDevices-health'] ? '<li>Health monitoring devices</li>' : ''}  ${state['security-privacyappsDevices-other-text'] ? `<li>${state['security-privacyappsDevices-other-text']}</li>` : ''} ${state['security-privacyappsDevicesSetting'] ? `To check settings, ${state['security-privacyappsDevicesSetting']}` : ''}
 </div>
 </td>` : '<td>No</td>') : '<td></td>' }
   </tr>
   <tr>
     <td><strong>Does this technology or app allow you to share the collected data with your social media accounts, like Facebook?</strong></td>
+    <td>${state['security-privacyappsSocial'] == 'permissioned' ? 'Yes, only with your permission.' : '' }${state['security-privacyappsSocial'] == 'yes' ? `Yes,<br>${state['security-privacyappsSetting'] ? `To check settings, ${state['security-privacyappsSetting']}` : ''}` : '' } ${state['security-privacyappsSocial'] == 'no' ? 'No' : '' }</td>
   </tr>
 </table>
 
