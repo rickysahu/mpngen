@@ -96,6 +96,10 @@ let sections = [
         ]
       },
       {
+        showif: {
+          field: 'company-coveredEntity',
+          value: ['yes']
+        },
         formType: 'radio',
         name: 'coveredEntityText',
         label: 'Select one of the following statements to be inserted into the privacy notice:',
@@ -385,6 +389,10 @@ let sections = [
         ]
       },
       {
+        showif: {
+          field: 'security-privacyappsAccess',
+          value: ['yes','permissioned']
+        },
         formType: 'checkbox',
         name: 'privacyappsDevices',
         required: true,
@@ -421,6 +429,10 @@ let sections = [
         ]
       },
       {
+        showif: {
+          field: 'security-privacyappsAccess',
+          value: ['yes','permissioned']
+        },
         formType: 'text',
         name: 'privacyappsDevicesSetting',
         label: 'Here is how you can check your settings, including permissions set as a default...',
@@ -490,6 +502,10 @@ let sections = [
         ]
       },
       {
+        showif: {
+          field: 'user-useraccessAvailable',
+          value: ['yes']
+        },
         formType: 'checkbox',
         name: 'useraccessType',
         required: true,
@@ -514,6 +530,10 @@ let sections = [
         ]
       },
       {
+        showif: {
+          field: 'user-useraccessAvailable',
+          value: ['yes']
+        },
         formType: 'text',
         name: 'useraccessSetting',
         label: 'Here is how to do this...',
@@ -550,6 +570,10 @@ let sections = [
         ]
       },
       {
+        showif: {
+          field: 'user-useraccessDeactivation',
+          value: ['years']
+        },
         formType: 'text',
         name: 'useraccessDeactivationYears',
         label: 'After how many years?',

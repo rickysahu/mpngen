@@ -227,7 +227,6 @@ export default class extends React.Component {
                   return <div>{q.formType}</div>
                 }
               }.bind(this))}
-              {JSON.stringify(this.state)}
             </Paper>
           </Formsy.Form>
         </MuiThemeProvider>
@@ -245,5 +244,6 @@ export default class extends React.Component {
       </div>
     </div>
   }
-
 }
+
+// {JSON.stringify(this.state)}
