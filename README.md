@@ -1,16 +1,11 @@
 # MPNGEN
+## Features
 
-
-
-# Features
-## Header
+### Header
 [x] Floats at top
 [x] Automatically shows what's been completed
 
-## Question Schema
-[x] Controls all questions to be asked
-
-## Form
+### Form
 [x] Validates phone numbers
 [x] Validates email
 [x] Validates urls
@@ -19,13 +14,17 @@
 [x] Header changes to green when valid data
 [ ] Do not share automatically removes share options
 
-## State
+### State
 [x] Display responses as JSON
 [ ] Export as JSON
 [ ] Save using local storage on refresh
 
 
-# questions
+### Questions
+[x] Conditional questions appear only when needed
+[x] Other entry
+[x] Question Schema controls all questions to be asked
+[ ] Anchor tags and footers for footnotes
 
 * "Privacy: How this technology accesses other data
 [If yes] Here is how you can check your settings,

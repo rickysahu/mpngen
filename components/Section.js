@@ -12,7 +12,6 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import AutoComplete from 'material-ui/AutoComplete';
 import Checkbox from 'material-ui/Checkbox';
 import ReactMarkdown from 'react-markdown';
-// let templates = require('../fixtures/templates/index.js');
 import templates from '../fixtures/templates';
 
 let styles = {

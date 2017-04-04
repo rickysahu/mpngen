@@ -1,6 +1,5 @@
 function contact (state) {
   return `
-# Welcome to the ${state['company-legalName'] || '[company-legalName]'} Privacy Notice
 <br></br>
 ## Contact Us
 ### ${state['company-legalName'] || '[company-legalName]'}
@@ -36,5 +35,7 @@ function f (state) {
 }
 
 module.exports = {
-  f: f
+  f: f,
+  hipaa: hipaa,
+  contact: contact
 }

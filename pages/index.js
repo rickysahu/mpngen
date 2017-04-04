@@ -9,6 +9,8 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import TableOfContents from '../components/TableOfContents';
 import Section from '../components/Section';
 import formdata from '../fixtures/formdata';
+import ReactMarkdown from 'react-markdown';
+import templates from '../fixtures/templates';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 try {
@@ -46,6 +48,42 @@ export default class extends React.Component {
     this.setState(this.state)
   }
 
+  showMPN (returnSource) {
+    try {
+      let sourceData = '';
+      sourceData += templates['header'].f(this.state.company.form)
+      sourceData += templates['company'].hipaa(this.state.company.form)
+      sourceData += templates['data'].f(this.state.data.form)
+      sourceData += templates['security'].f(this.state.security.form)
+      sourceData += templates['user'].f(this.state.user.form)
+      sourceData += templates['company'].contact(this.state.company.form)
+      if(returnSource){
+        return sourceData
+      }
+      return <div style={{width: '100%', textAlign: 'center'}}>
+        <br /><br />
+        <MuiThemeProvider muiTheme={getMuiTheme()}>
+        <Paper style={{
+          margin: '2rem .5rem',
+          textAlign: 'left',
+          display: 'inline-block',
+          maxWidth: 950,
+          minWidth: 300,
+          padding: '1rem 2rem',
+        }}>
+          <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#dedede'}}>
+            <ToolbarGroup>
+              <ToolbarTitle text={'Preview Full Privacy Notice'} />
+            </ToolbarGroup>
+          </Toolbar>
+          <ReactMarkdown source={sourceData}/>
+        </Paper>
+        </MuiThemeProvider>
+      </div>
+    } catch (e) {
+      return <div> Not all fields complete </div>
+    }
+  }
   // shouldComponentUpdate({children}, nextState){
   //   return this.props.children !== children;
   // }
@@ -71,13 +109,18 @@ export default class extends React.Component {
         <br />
         <TableOfContents parentState={this.state}/>
       </div>
-          {
-            formdata.map(function(section){
-              return <Section {...section} setParentState={this.setStateFromChild}/>
-            }.bind(this))
-          }
+      {
+        formdata.map(function(section){
+          return <Section {...section} setParentState={this.setStateFromChild}/>
+        }.bind(this))
+      }
+      <div style={{textAlign: 'left'}}>
+        {this.showMPN()}
+      </div>
+      <div style={{textAlign: 'left'}}>
+        <pre>{this.showMPN(true)}</pre>
+      </div>
       <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(this.state, null, 2)}</pre>
-
     </div>
   }
 }
