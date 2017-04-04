@@ -26,12 +26,15 @@ ${state['company-coveredEntityText'] == 'hipaa_protected' ? `Some of the health 
   
 `
 }
+function formatSpace (state) {
+  return `<div>${Array(200).fill('&nbsp;').join('')}</div>`
+}
 
 function f (state) {
   if (typeof(state) === 'undefined'){
     state = {}
   }
-  return contact(state) + hipaa(state)
+  return contact(state) + hipaa(state) + formatSpace(state)
 }
 
 module.exports = {

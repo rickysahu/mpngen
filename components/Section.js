@@ -226,6 +226,7 @@ export default class extends React.Component {
                   return <div>{q.formType}</div>
                 }
               }.bind(this))}
+              <div dangerouslySetInnerHTML={{__html: Array(200).fill(`&nbsp;`).join('')}} />
             </Paper>
           </Formsy.Form>
         </MuiThemeProvider>
