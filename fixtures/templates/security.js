@@ -50,9 +50,12 @@ function f (state) {
   </tr>
   <tr>
     <td><strong>Will this technology or app request access to other device data or applications, such as your phone’s camera, photos, or contacts? </strong></td>    
-    ${typeof state['security-privacyappsAccess'] !== 'undefined' && state['security-privacyappsAccess'] !== '' ? (state['security-privacyappsAccess'] == 'permissioned' ? `<td>
-    Yes, only with your permission. It connects to...
-    </td>` : '<td>No</td>') : '<td></td>' }
+${typeof state['security-privacyappsAccess'] !== 'undefined' && state['security-privacyappsAccess'] !== '' ? (state['security-privacyappsAccess'] == 'permissioned' ? `<td>
+<div>
+  Yes, only with your permission. It connects to... 
+${state['security-privacyappsDevices-camera'] ? '<li>Camera</li>' : ''} ${state['security-privacyappsDevices-photo'] ? '<li>Photo</li>' : ''} ${state['security-privacyappsDevices-contacts'] ? '<li>Contacts</li>' : ''} ${state['security-privacyappsDevices-location'] ? '<li>Location</li>' : ''} ${state['security-privacyappsDevices-microphone'] ? '<li>Microphone</li>' : ''} ${state['security-privacyappsDevices-health'] ? '<li>Health monitoring devices</li>' : ''}  ${state['security-privacyappsDevices-other-text'] ? `<li>${state['security-privacyappsDevices-other-text']}</li>` : ''}
+</div>
+</td>` : '<td>No</td>') : '<td></td>' }
   </tr>
   <tr>
     <td><strong>Does this technology or app allow you to share the collected data with your social media accounts, like Facebook?</strong></td>
