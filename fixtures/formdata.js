@@ -13,9 +13,10 @@ let countries = ["Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra
 let sections = [
   {
     id: 'company',
-    title: 'Company Info',
+    title: 'Company',
     questions: [
       {
+        helper: 'Basic Info',
         formType: 'text',
         name: 'legalName',
         label: 'Legal entity name',
@@ -34,6 +35,7 @@ let sections = [
         validationError: errorMessages.urlError,
       },
       {
+        helper: 'Contact',
         formType: 'text',
         name: 'contactLink',
         label: 'Link online contact or coment form',
@@ -104,8 +106,8 @@ let sections = [
     ],
   },
   {
-    id: 'usage',
-    title: 'Data Usage',
+    id: 'data',
+    title: 'Data',
     questions: [
       {
         formType: 'checkbox',
@@ -250,7 +252,7 @@ let sections = [
   },
   {
     id: 'security',
-    title: 'Data Security',
+    title: 'Security',
     questions: [
       {
         formType: 'radio',
@@ -457,7 +459,7 @@ let sections = [
   },
   {
     id: 'user',
-    title: 'User Options',
+    title: 'User',
     questions: [
       {
         formType: 'radio',
@@ -540,6 +542,7 @@ let sections = [
         formType: 'text',
         name: 'useraccessPolicy',
         header: 'Policy Changes: How we will notify you if our privacy policy changes',
+        helper: 'Describe how/if the company will notify consumers of privacy policy changes (e.g. merger or acquisition) and provide link to section in privacy policy.',
         label: 'Here is how to do this...',
         hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
         required: true,
@@ -552,6 +555,7 @@ let sections = [
         formType: 'text',
         name: 'useraccessNotification',
         header: 'Breach: How we will notify you and protect your data in case of an improper disclosure',
+        helper: '(Company name] complies with all applicable laws regarding breaches. Describe how the company will protect consumers’ data in the case of a breach and provide link to section in privacy policy.',
         label: 'Describe your company policy',
         hintText: 'Company name] complies with all applicable laws regarding breaches. Describe how the company will protect consumers’ data in the case of a breach and provide link to section in privacy policy.',
         required: true,
@@ -560,13 +564,6 @@ let sections = [
         validations: {},
         validationError: errorMessages.isDefaultRequiredValue,
       },
-    ]
-  },
-  {
-    id: 'policy',
-    title: 'Policy Changes',
-    questions: [
-
     ]
   },
 ]

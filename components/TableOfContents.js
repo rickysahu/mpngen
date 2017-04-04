@@ -53,7 +53,7 @@ export default class extends React.Component {
             canSubmit = false
           }
         }
-        return <div style={{ display: 'inline-block', paddingRight: '1rem' }}>
+        return <div style={{ display: 'inline-block', paddingRight: '.4rem' }}>
           <span>
             <MuiThemeProvider muiTheme={getMuiTheme()}>
               <Checkbox checked={canSubmit} label={''} style={{ display: 'inline-block', width: '2rem' }} />
@@ -65,7 +65,6 @@ export default class extends React.Component {
         </div>
       }.bind(this))}
       </div>
-      {JSON.stringify(this.props)}
     </div>
   }
 

@@ -1,17 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
-import Formsy from 'formsy-react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
-import { FormsyCheckbox, FormsyDate, FormsyRadio, FormsyRadioGroup,
-FormsySelect, FormsyText, FormsyTime, FormsyToggle, FormsyAutoComplete } from 'formsy-material-ui/lib';
-Formsy.addValidationRule('minLengthOrEmpty', (values, value) => {
-  console.log(value.length > 0, value)
-  return value.length > 0
-})
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import TableOfContents from '../components/TableOfContents';
 import Section from '../components/Section';
@@ -27,7 +20,7 @@ let styles = {
     margin: '-1rem -1rem 1rem -1rem'
   },
   paperStyle: {
-    maxWidth: 600,
+    maxWidth: 500,
     minWidth: 300,
     margin: 'auto',
     padding: '1rem',
@@ -64,8 +57,18 @@ export default class extends React.Component {
   render () {
     return <div style={{fontFamily: 'system-ui, Roboto, Helvetica, Sans-Serif'}}>
       <div style={{textAlign:'center'}}>
-        <h1 style={{fontWeight: 400}}>MPN GEN</h1>
-        <h2 style={{fontWeight: 400}}>Model Privacy Notice Generator</h2>
+        <h1 style={{color:'#7fda85'}}>mpn gen (1upHealth)</h1>
+        <h2 style={{fontWeight: 400}}>1upHealth Model Privacy Notice Generator</h2>
+        <h1>{`Let's Build Your Model Privacy Notice`}</h1>
+        <div style={{textAlign: 'center', display:'block', width: '100%'}}>
+          <div style={{textAlign: 'left', display:'inline-block', maxWidth: '600'}}>
+            Welcome to the <a href='https://1uphealth.care'>1upHealth</a> Model Privacy Notice Generator (mpn gen). This project is a response to the USA Challenge.gov Healthcare Privacy Policy Snapshot Challenge.
+            <br />
+            <br />
+            Mpn Gen has many features including form validation, multi-device friendly layout, and helpful UX to guide users through the process. The left hand side presents inputs for the Model Privacy Notice. The right hand side shows snippets of the output. You can learn <a href='/'>more about the features here</a>. Go ahead and jump right into the form to how it works.
+          </div>
+        </div>
+        <br />
         <TableOfContents parentState={this.state}/>
       </div>
           {
@@ -78,61 +81,3 @@ export default class extends React.Component {
     </div>
   }
 }
-
-
-// <br />
-// <br />
-// <Paper style={styles.paperStyle}>
-// <div style={{color: 'red'}}>{!this.state.canSubmit ? "Some fields are unanswered. All fields are required." : ""}</div>
-// <RaisedButton
-//   style={styles.submitStyle}
-//   type="submit"
-//   label="Submit"
-//   disabled={!this.state.canSubmit}
-// />
-// </Paper>
-
-
-
-
-// <Paper style={styles.paperStyle}>
-//   <Toolbar style={styles.toolbarInPaper}>
-//     <ToolbarGroup>
-//       <ToolbarTitle text="Company Info" />
-//     </ToolbarGroup>
-//   </Toolbar>
-//   <FormsyCheckbox
-//     name="agree"
-//     label="Do you agree to disagree?"
-//     style={styles.switchStyle} />
-//   <FormsyToggle
-//     name="toggle"
-//     label="Toggle"
-//     style={styles.switchStyle} />
-//   <FormsyRadioGroup name="shipSpeed" defaultSelected="not_light">
-//     <FormsyRadio
-//       value="light"
-//       label="prepare for light speed"
-//       style={styles.switchStyle}
-//     />
-//     <FormsyRadio
-//       value="not_light"
-//       label="light speed too slow"
-//       style={styles.switchStyle}
-//     />
-//   </FormsyRadioGroup>
-//   <FormsyText
-//     name="name"
-//     validations="isExisty"
-//     required
-//     validationError={wordsError}
-//     hintText="What is your name?"
-//     floatingLabelText="Name" />
-//   <FormsyText
-//     name="age"
-//     required
-//     validations="isNumeric"
-//     validationError={numericError}
-//     hintText="Are you a wrinkly?"
-//     floatingLabelText="Age (optional)" />
-// </Paper>
