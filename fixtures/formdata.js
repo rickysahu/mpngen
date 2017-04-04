@@ -376,7 +376,7 @@ let sections = [
         choices: [
           {
             label:`Yes, only with your permission.`,
-            value:`yes`,
+            value:`permissioned`,
           },
           {
             label:`No`,
@@ -443,7 +443,7 @@ let sections = [
           },
           {
             label:`Yes, only with your permission.`,
-            value:`permission`,
+            value:`permissioned`,
           },
           {
             label:`No`,

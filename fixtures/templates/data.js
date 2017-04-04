@@ -3,6 +3,8 @@ function f (state) {
     state = {}
   }
   return `
+<br></br>  
+
 ## Use: How we use your data internally 
 ### We collect and use your identifiable data (2)  
 ${state['data-internal-primary'] ? '- To provide the primary service (3) of the app or technology  ' : '  '}
@@ -16,6 +18,7 @@ ${state['data-internal-operations'] ? '- For company operations (e.g., quality c
 ${state['data-internal-improve'] ? '- To develop and improve new and current products and services (e.g., analytics (4))  ' : '  '}
 
 ${state['data-internal-other-text'] ? '- '+state['data-internal-other-text'].trim()+'  '  : ''}
+<br></br>  
   
 ## Share: How we share your data externally with other companies or entities 
 ### We share your identifiable data (5):  
@@ -30,6 +33,7 @@ ${state['data-share-improve'] ? '- To develop and improve new and current produc
 ${state['data-share-other-text'] ? '- '+state['data-share-other-text'].trim()+'  '  : ''}
   
 ${state['data-share-not'] ? '- We DO NOT share your identifiable data (8) ' : '  '} 
+<br></br>  
   
 ### We share your data AFTER removing identifiers (note that remaining data may not be anonymous): 
 ${state['data-shareAnonymous-primary'] ? '- For the primary purposes of the app or technology  ' : '  '}
@@ -43,6 +47,7 @@ ${state['data-shareAnonymous-improve'] ? '- To develop and improve new and curre
 ${state['data-shareAnonymous-other-text'] ? '- '+state['data-shareAnonymous-other-text'].trim()+'  '  : ''}
   
 ${state['data-shareAnonymous-not'] ? '- We DO NOT share your data after removing identifiers  ' : '  '}  
+<br></br>  
 
 ## Sell: Who we sell your data to 
 <table>

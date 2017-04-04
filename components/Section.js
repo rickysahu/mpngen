@@ -39,7 +39,7 @@ let styles = {
     padding: '1rem 1rem',
   },
   switchStyle: {
-    marginTop: '.1rem',
+    marginTop: '.2rem',
   },
   submitStyle: {
     marginTop: 32,
@@ -191,7 +191,7 @@ export default class extends React.Component {
                     {q.choices.map(function(choice){
                       if(choice.label === 'Other'){
                         return <div>
-                          <span style={{display: 'inline-block', marginTop:'.5rem'}}>
+                          <span style={{display: 'inline-block', marginTop:'0rem'}}>
                             <Checkbox
                               checked={typeof this.state[this.props.id+"-"+q.name+"-"+choice.value] !== 'undefined' && this.state[this.props.id+"-"+q.name+"-"+choice.value].trim().length > 0}
                               label={'Other:'}
@@ -205,7 +205,7 @@ export default class extends React.Component {
                               onChange={this.changeOtherValue.bind(this)}
                               required={false}
                               hintText={'fill in to check "other" option'}
-                              style={{position: 'relative', lineHeight:'inherit', top:'-.4rem'}}
+                              style={{position: 'relative', lineHeight:'inherit', top:'-.6rem'}}
                               fullWidth={false} />
                           </span>
                         </div>
@@ -226,7 +226,7 @@ export default class extends React.Component {
             </Paper>
           </Formsy.Form>
         </MuiThemeProvider>
-        <div style={{display: 'inline-block', fontSize: '.66rem'}}>
+        <div style={{display: 'inline-block', fontSize: '.8rem'}}>
           <br /><br />
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <div style={styles.paperMDStyle}>

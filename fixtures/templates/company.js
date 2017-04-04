@@ -1,6 +1,7 @@
 function contact (state) {
   return `
 # Welcome to the ${state['company-legalName'] || '[company-legalName]'} Privacy Notice
+<br></br>
 ## Contact Us
 ### ${state['company-legalName'] || '[company-legalName]'}
 [Privacy Policy](${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}) (${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"})  
@@ -18,6 +19,7 @@ ${state['company-country'] || "[company-country]"}
 function hipaa (state) {
   return `
 ${state['company-coveredEntity'] == 'yes' ? `
+<br></br>
 ## ${state['company-legalName'] || '[company-legalName]'} is a HIPAA Covered Entity
 ${state['company-coveredEntityText'] == 'not_hipaa_protected' ? `Please note that the health data we collect as part of this ${state['company-legalName'] || '[company-legalName]'} are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply` : ''}
 ${state['company-coveredEntityText'] == 'hipaa_protected' ? `Some of the health data we collect as part of this ${state['company-legalName'] || '[company-legalName]'} also are protected by HIPAA. Read our [HIPAA Notice of Privacy Practices](${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}) for more information.` : ''}
