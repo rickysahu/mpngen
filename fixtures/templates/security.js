@@ -49,7 +49,10 @@ function f (state) {
     <th style='width:30%;'><strong>Is it accessed?<strong></th>
   </tr>
   <tr>
-    <td><strong>Will this technology or app request access to other device data or applications, such as your phone’s camera, photos, or contacts? </strong></td>
+    <td><strong>Will this technology or app request access to other device data or applications, such as your phone’s camera, photos, or contacts? </strong></td>    
+    ${typeof state['security-privacyappsAccess'] !== 'undefined' && state['security-privacyappsAccess'] !== '' ? (state['security-privacyappsAccess'] == 'permissioned' ? `<td>
+    Yes, only with your permission. It connects to...
+    </td>` : '<td>No</td>') : '<td></td>' }
   </tr>
   <tr>
     <td><strong>Does this technology or app allow you to share the collected data with your social media accounts, like Facebook?</strong></td>
