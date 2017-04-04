@@ -83,23 +83,30 @@ let sections = [
       {
         formType: 'radio',
         name: 'coveredEntity',
-        label: 'If your organization is a HIPAA covered entity, is the data your entity collects HIPAA protected?',
-        mpnText: 'Select one of the following statements to be inserted into the privacy notice:',
+        label: 'Is your organization is a HIPAA covered entity?',
         choices: [
           {
-            value: `not_hipaa_entity`,
-            label: `We are not a HIPAA covered entity`,
-            mpnText: ``
+            label: `No`,
+            value: `no`,
           },
           {
+            label: `Yes`,
+            value: `yes`,
+          },
+        ]
+      },
+      {
+        formType: 'radio',
+        name: 'coveredEntityText',
+        label: 'Select one of the following statements to be inserted into the privacy notice:',
+        choices: [
+          {
             value: `not_hipaa_protected`,
-            label: `NO, data is not HIPAA protected`,
-            mpnText: `Please note that the health data we collect as part of this [insert name of technology] are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply`
+            label: `Please note that the health data we collect as part of this [insert name of technology] are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply`
           },
           {
             value: `hipaa_protected`,
-            label: `YES, data is HIPAA protected`,
-            mpnText: `Some of the health data we collect as part of this [insert name of technology product] also are protected by HIPAA. Read our HIPAA Notice of Privacy Practices [embed link or popup] for more information.`
+            label: `Some of the health data we collect as part of this [insert name of technology product] also are protected by HIPAA. Read our HIPAA Notice of Privacy Practices [embed link or popup] for more information.`
           }
         ]
       }

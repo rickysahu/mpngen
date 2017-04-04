@@ -39,7 +39,7 @@ let styles = {
     padding: '1rem 1rem',
   },
   switchStyle: {
-    marginTop: '.5rem',
+    marginTop: '.1rem',
   },
   submitStyle: {
     marginTop: 32,

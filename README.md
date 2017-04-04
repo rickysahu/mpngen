@@ -4,8 +4,8 @@
 
 # Features
 ## Header
-[x] floats at top
-[ ] automatically shows what's been completed
+[x] Floats at top
+[x] Automatically shows what's been completed
 
 ## Question Schema
 [x] Controls all questions to be asked
@@ -17,6 +17,7 @@
 [x] Uses correct form types for easy mobile entry (e.g. tel, number, email, text)
 [x] Autocomplete country selector
 [x] Header changes to green when valid data
+[ ] Do not share automatically removes share options
 
 ## State
 [x] Display responses as JSON
@@ -26,6 +27,9 @@
 
 # questions
 
-Privacy: How this technology accesses other data
+* "Privacy: How this technology accesses other data
 [If yes] Here is how you can check your settings,
-including permissions set as a default...No
+including permissions set as a default...No"
+What does this last part "including permissions set as a default...No" mean?
+
+* Is the privacy policy mentioned in "Some of the health data we collect as part of this ... Read our HIPAA Notice of Privacy Practices [embed link or popup] for more information." the same privacy policy collected by the [Link to full privacy policy] ?
