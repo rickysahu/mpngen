@@ -453,6 +453,10 @@ let sections = [
       },
       {
         formType: 'text',
+        showif: {
+          field: 'security-privacyappsSocial',
+          value: ['yes','permissioned']
+        },
         name: 'privacyappsSetting',
         label: 'Here is how you can check your settings, including permissions set as a default...',
         hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',

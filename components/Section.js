@@ -138,6 +138,11 @@ export default class extends React.Component {
                 </ToolbarGroup>
               </Toolbar>
               {this.props.questions.map(function(q){
+                if(typeof q.showif !== 'undefined' && this.state.formData){
+                  if(q.showif.value.indexOf(this.state.formData[q.showif.field]) === -1) {
+                    return ''
+                  }
+                }
                 if(q.formType === "text") {
                   return <div>
                     {q.header ? <h2 style={styles.questionHeader}><span><br />{q.header}</span></h2> : <span></span> }
