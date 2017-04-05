@@ -16,8 +16,9 @@ import templates from '../fixtures/templates';
 
 let styles = {
   questionHeader: {
-    lineHeight: '1.5rem',
-    color: '#82d087'
+    fontSize: '1.5rem',
+    lineHeight: '2rem',
+    color: '#76c77c'
   },
   paperStyle: {
     margin: '2rem .5rem',
@@ -144,7 +145,7 @@ export default class extends React.Component {
                 }
                 if(q.formType === "text") {
                   return <div>
-                    {q.header ? <h2 style={styles.questionHeader}><span><br />{q.header}</span></h2> : <span></span> }
+                    {q.header ? <div style={styles.questionHeader}><span><br />{q.header}</span></div> : <span></span> }
                     {q.helper ? <h4 style={{marginBottom: '0px', lineHeight: '1.5rem'}}>{q.helper}</h4> : <span></span> }
                     <FormsyText
                       name={this.props.id + "-"+ q.name}
@@ -173,7 +174,7 @@ export default class extends React.Component {
                     floatingLabelText={q.label} />
                 } else if (q.formType === "radio") {
                   return <div>
-                    <h2 style={styles.questionHeader}>{q.header ? <span><br />{q.header}</span> : ''}</h2>
+                    <div style={styles.questionHeader}>{q.header ? <span><br />{q.header}</span> : ''}</div>
                     <h4 style={{lineHeight: '1.5rem'}}>{q.label}</h4>
                     <FormsyRadioGroup
                       name={this.props.id + "-"+ q.name}
@@ -190,7 +191,7 @@ export default class extends React.Component {
                     </div>
                 } else if (q.formType === "checkbox") {
                   return <div>
-                    <h2 style={styles.questionHeader}>{q.header ? <span><br />{q.header}</span> : ''}</h2>
+                    <div style={styles.questionHeader}>{q.header ? <span><br />{q.header}</span> : ''}</div>
                     <h4 style={{lineHeight: '1.5rem'}}>{q.label}</h4>
                     {q.choices.map(function(choice){
                       if(choice.label === 'Other'){
@@ -235,7 +236,7 @@ export default class extends React.Component {
           <MuiThemeProvider muiTheme={getMuiTheme()}>
             <div style={styles.paperMDStyle}>
               <ToolbarGroup>
-                <ToolbarTitle text={this.props.title + ' (Preview)'} style={{color: this.state.canSubmit ? '#7fda85' : '#aaa'}} />
+                <ToolbarTitle text={this.props.title + ' (Preview)'} style={{color: this.state.canSubmit ? '#76c77c' : '#aaa'}} />
               </ToolbarGroup>
               <ReactMarkdown source={templates[this.props.id].f(this.state.formData)}/>
             </div>

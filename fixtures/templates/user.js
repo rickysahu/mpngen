@@ -10,10 +10,6 @@ function f (state) {
 ## User Options: What you can do with the data that we collect
 <table>
   <tr>
-    <th></th>
-    <th style='width:40%;'></th>
-  </tr>
-  <tr>
     <td><strong>Can you access, edit, share, or delete the data we have about you?</strong></td>
     <td>${state['user-useraccessAvailable'] === 'yes' ? `Yes, you can ... <br> ${state['user-useraccessType-access'] ? '<li>access your data</li>' : ''} ${state['user-useraccessType-edit'] ? '<li>edit your data</li>' : ''} ${state['user-useraccessType-share'] ? '<li>share your data</li>' : ''} ${state['user-useraccessType-delete'] ? '<li>delete your data</li>' : ''} ${state['user-useraccessSetting'] ? state['user-useraccessSetting'] : '[user-useraccessSetting]'}` : ''} 
     ${state['user-useraccessAvailable'] === 'no' ? 'No' : ''}</td>
@@ -23,10 +19,6 @@ function f (state) {
 
 ## Deactivation(17): What happens to your data when your account is deactivated 
 <table>
-  <tr>
-    <th></th>
-    <th style='width:40%;'></th>
-  </tr>
   <tr>
     <td><strong>When your account is deactivated/terminated by you or the company, your data are...  </strong></td>
     <td>${state['user-useraccessDeactivation'] === 'years' ? `Deleted after ${state['user-useraccessDeactivationYears'] || '[X]'} years` : ''} ${state['user-useraccessDeactivation'] === 'permanent' ? `Permanently retained and used` : ''} ${state['user-useraccessDeactivation'] === 'request' ? `Retained and used until you request deletion` : ''} ${state['user-useraccessDeactivation'] === 'delete' ? `Deleted immediately` : ''} </td>
@@ -43,8 +35,6 @@ ${state['user-privacyPolicyChangeLink'] ? `<br>Find out more in the [Changes sec
 ${state['company-legalName'] || '[company-legalName]'} complies with all applicable laws regarding breaches.  
 ${state['user-useraccessNotification'] ? state['user-useraccessNotification'] : '[user-useraccessNotification]' }
 ${state['user-privacyPolicyBreachLink'] ? `<br>Find out more in the [Breach section of our Privacy Policy](${state['user-privacyPolicyBreachLink']}).` : '[user-privacyPolicyBreachLink]' }
-<br></br>
-
 `
 }
 module.exports = {

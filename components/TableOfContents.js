@@ -59,8 +59,8 @@ export default class extends React.Component {
               <Checkbox checked={canSubmit} label={''} style={{ display: 'inline-block', width: '2rem' }} />
             </MuiThemeProvider>
           </span>
-          <a href={`#${section.id}`} style={{verticalAlign: '.4rem', textDecoration:'none', color: '#000'}}>
-            {` ${section.title}`}
+          &nbsp;<a href={`#${section.id}`} style={{verticalAlign: '.4rem', textDecoration:'none', color: '#000'}}>
+            {`${section.title}`}
           </a>
         </div>
       }.bind(this))}

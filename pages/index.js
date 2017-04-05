@@ -49,13 +49,13 @@ export default class extends React.Component {
   }
 
   showMPN (returnSource) {
+    let sourceData = '';
     try {
       let fullForm = Object.assign(
         this.state.company.form, 
         this.state.data.form, 
         this.state.security.form, 
         this.state.user.form);
-      let sourceData = '';
       sourceData += templates['header'].f(fullForm)
       sourceData += templates['company'].hipaa(fullForm)
       sourceData += templates['data'].f(fullForm)
@@ -65,29 +65,30 @@ export default class extends React.Component {
       if(returnSource){
         return sourceData
       }
-      return <div style={{width: '100%', textAlign: 'center'}}>
-        <br /><br />
-        <MuiThemeProvider muiTheme={getMuiTheme()}>
-        <Paper style={{
-          margin: '2rem .5rem',
-          textAlign: 'left',
-          display: 'inline-block',
-          maxWidth: 950,
-          minWidth: 300,
-          padding: '1rem 2rem',
-        }}>
-          <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#dedede'}}>
-            <ToolbarGroup>
-              <ToolbarTitle text={'Preview Full Privacy Notice'} />
-            </ToolbarGroup>
-          </Toolbar>
-          <ReactMarkdown source={sourceData}/>
-        </Paper>
-        </MuiThemeProvider>
-      </div>
     } catch (e) {
-      return <div> Not all fields complete </div>
+      sourceData = '<div style={color: red}>Not all fields complete</div>'
     }
+    return <div style={{width: '100%', textAlign: 'center'}}>
+      <br /><br />
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <Paper style={{
+        margin: '2rem .5rem',
+        textAlign: 'left',
+        display: 'inline-block',
+        maxWidth: 950,
+        minWidth: 300,
+        padding: '1rem 2rem',
+      }}>
+        <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#dedede'}}>
+          <ToolbarGroup>
+            <ToolbarTitle text={'Preview Full Privacy Notice'} />
+          </ToolbarGroup>
+        </Toolbar>
+        <ReactMarkdown source={sourceData}/>
+      </Paper>
+      </MuiThemeProvider>
+    </div>
+
   }
   // shouldComponentUpdate({children}, nextState){
   //   return this.props.children !== children;
@@ -98,10 +99,9 @@ export default class extends React.Component {
   }
 
   render () {
-    return <div style={{fontFamily: 'system-ui, Roboto, Helvetica, Sans-Serif'}}>
+    return <div style={{fontFamily: 'system-ui, Roboto, Helvetica, Sans-Serif', lineHeight: '1.5rem'}}>
       <div style={{textAlign:'center'}}>
-        <h1 style={{color:'#7fda85'}}>mpn gen (1upHealth)</h1>
-        <h2 style={{fontWeight: 400}}>1upHealth Model Privacy Notice Generator</h2>
+        <h1 >mpn gen (1upHealth)</h1>
         <h1>{`Let's Build Your Model Privacy Notice`}</h1>
         <div style={{textAlign: 'center', display:'block', width: '100%'}}>
           <div style={{textAlign: 'left', display:'inline-block', maxWidth: '600'}}>
