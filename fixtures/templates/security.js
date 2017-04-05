@@ -1,3 +1,5 @@
+import footnotes from '../footnotes.js'
+
 function f (state) {
   if (typeof(state) === 'undefined'){
     state = {}
@@ -8,7 +10,7 @@ function f (state) {
 <table>
   <tr>
     <th><strong>Stored Data<strong></th>
-    <th style='width:40%;'><strong>Is it stored?<strong></th>
+    <th><strong>Is it stored?<strong></th>
   </tr>
   <tr>
     <td><strong>Are your data stored on the device? </strong></td>
@@ -25,19 +27,47 @@ function f (state) {
 <table>
   <tr>
     <th><strong>Encrypted Data<strong></th>
-    <th style='width:40%;'><strong>Is it encrypted?<strong></th>
+    <th><strong>Is it encrypted?<strong></th>
   </tr>
   <tr>
-    <td><strong>Does the app or technology use encryption to encrypt your data in the device or app? </strong></td>
-    <td>${state['security-encryptDevice'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptDevice'] == 'no' ? 'No' : '' } ${state['security-encryptDevice'] == 'na' ? 'N/A' : '' } ${state['security-encryptDevice'] == 'steps' ? 'Yes, when you take certain steps (click to learn how)' : '' }</td>
+    <td><strong>Does the app or technology use 
+    <div class="tooltip">
+      encryption
+      <div class="tooltiptext">
+        ${footnotes.encryption}     
+      </div>
+    </div>    
+    to encrypt your data in the device or app? </strong></td>
+    <td>${state['security-encryptDevice'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptDevice'] == 'no' ? 'No' : '' } ${state['security-encryptDevice'] == 'na' ? 'N/A' : '' } ${state['security-encryptDevice'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptDeviceLink'] || `[security-encryptDeviceLink]`}'>click to learn how</a>)` : '' }</td>
   </tr>
   <tr>
-    <td><strong>Does the app or technology use encryption to encrypt your data when stored on our company servers or with an outside cloud computing services provider?</strong></td>
-    <td>${state['security-encryptServer'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptServer'] == 'no' ? 'No' : '' } ${state['security-encryptServer'] == 'na' ? 'N/A' : '' } ${state['security-encryptServer'] == 'steps' ? 'Yes, when you take certain steps (click to learn how)' : '' }</td>
+    <td><strong>Does the app or technology use 
+    <div class="tooltip">
+      encryption
+      <div class="tooltiptext">
+        ${footnotes.encryption}     
+      </div>
+    </div>    
+    to encrypt your data when stored on our company servers or with an outside 
+    <div class="tooltip">
+      cloud computing
+      <div class="tooltiptext">
+        ${footnotes.cloudComputing}     
+      </div>
+    </div>    
+    services provider?</strong></td>
+    <td>${state['security-encryptServer'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptServer'] == 'no' ? 'No' : '' } ${state['security-encryptServer'] == 'na' ? 'N/A' : '' } ${state['security-encryptServer'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptServerLink'] || `[security-encryptServerLink]`}'>click to learn how</a>)` : '' }</td>
   </tr>
   <tr>
-    <td><strong>Does the app or technology use encryption to encrypt your data while it is transmitted?</strong></td>
-    <td>${state['security-encryptTransmit'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptTransmit'] == 'no' ? 'No' : '' } ${state['security-encryptTransmit'] == 'na' ? 'N/A' : '' } ${state['security-encryptTransmit'] == 'steps' ? 'Yes, when you take certain steps (click to learn how)' : '' }</td>
+    <td><strong>Does the app or technology use
+    <div class="tooltip">
+      encryption
+      <div class="tooltiptext">
+        ${footnotes.encryption}     
+      </div>
+    </div>    
+    to encrypt your data while it is transmitted?</strong></td>
+    <td>${state['security-encryptTransmit'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptTransmit'] == 'no' ? 'No' : '' } ${state['security-encryptTransmit'] == 'na' ? 'N/A' : '' } ${state['security-encryptTransmit'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptTransmitLink'] || `[security-encryptTransmitLink]`}'>click to learn how</a>)` : '' }</td>
   </tr>
 </table> 
 <br></br>  

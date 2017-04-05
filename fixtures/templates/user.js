@@ -1,4 +1,4 @@
-
+import footnotes from '../footnotes.js'
 
 function f (state) {
   if (typeof(state) === 'undefined'){
@@ -17,7 +17,14 @@ function f (state) {
 </table> 
 <br></br>
 
-## Deactivation(17): What happens to your data when your account is deactivated 
+<h2>
+  <div class="tooltip">
+    Deactivation
+    <div class="tooltiptext">
+      ${footnotes.deactivation}     
+    </div>
+  </div>: What happens to your data when your account is deactivated 
+</h2>
 <table>
   <tr>
     <td><strong>When your account is deactivated/terminated by you or the company, your data are...  </strong></td>
@@ -31,7 +38,14 @@ ${state['user-useraccessPolicy'] ? state['user-useraccessPolicy'] : '[user-usera
 ${state['user-privacyPolicyChangeLink'] ? `<br>Find out more in the [Changes section of our Privacy Policy](${state['user-privacyPolicyChangeLink']}).` : '[user-privacyPolicyChangeLink]' }
 <br></br>
 
-## Breach(18): How we will notify you and protect your data in case of an improper disclosure
+<h2>
+  <div class="tooltip">
+    Breach
+    <div class="tooltiptext">
+      ${footnotes.breach}     
+    </div>
+  </div>: How we will notify you and protect your data in case of an improper disclosure
+</h2>
 ${state['company-legalName'] || '[company-legalName]'} complies with all applicable laws regarding breaches.  
 ${state['user-useraccessNotification'] ? state['user-useraccessNotification'] : '[user-useraccessNotification]' }
 ${state['user-privacyPolicyBreachLink'] ? `<br>Find out more in the [Breach section of our Privacy Policy](${state['user-privacyPolicyBreachLink']}).` : '[user-privacyPolicyBreachLink]' }

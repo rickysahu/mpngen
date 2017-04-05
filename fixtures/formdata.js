@@ -360,6 +360,19 @@ let sections = [
         ]
       },
       {
+        showif: {
+          field: 'security-encryptDevice',
+          value: ['steps']
+        },
+        formType: 'text',
+        name: 'encryptDeviceLink',
+        label: 'Provide a link on how to encrypt devices',
+        hintText: 'https://1uphealth.care/help/encrypt-device',
+        required: true,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
+      },
+      {
         formType: 'radio',
         name: 'encryptServer',
         required: true,
@@ -384,6 +397,19 @@ let sections = [
         ]
       },
       {
+        showif: {
+          field: 'security-encryptServer',
+          value: ['steps']
+        },
+        formType: 'text',
+        name: 'encryptServerLink',
+        label: 'Provide a link on how to encrypt data on server',
+        hintText: 'https://1uphealth.care/help/encrypt-data-on-server',
+        required: true,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
+      },
+      {
         formType: 'radio',
         name: 'encryptTransmit',
         required: true,
@@ -406,6 +432,19 @@ let sections = [
             value:`na`,
           },
         ]
+      },
+      {
+        showif: {
+          field: 'security-encryptTransmit',
+          value: ['steps']
+        },
+        formType: 'text',
+        name: 'encryptTransmitLink',
+        label: 'Provide a link on how to encrypt data in transmit',
+        hintText: 'https://1uphealth.care/help/encrypt-transmit',
+        required: true,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
       },
       {
         formType: 'radio',
