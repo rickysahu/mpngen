@@ -86,6 +86,7 @@ function styles (state) {
 function top (state) {
   return `
 # Welcome to the ${state['company-legalName'] || '[company-legalName]'} Privacy Notice 
+When you use ${state['company-legalName'] || '[company-legalName]'} services, you trust us with your information. This Privacy Policy is meant to help you understand what data we collect, why we collect it, and what we do with it. You can find the full [privacy policy here](${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}). If you have questions you can reach us at [${state['company-email'] || "[company-email]"}](mailto:${state['company-email'] || "[company-email]"}).
 `
 }
 
