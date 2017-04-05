@@ -16,6 +16,7 @@
 
 ### State
 [x] Display responses as JSON
+[x] Styles in header of MPN are easy to change
 [ ] Export as JSON
 [ ] Save using local storage on refresh
 

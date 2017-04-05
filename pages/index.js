@@ -8,6 +8,7 @@ import MenuItem from 'material-ui/MenuItem';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import TableOfContents from '../components/TableOfContents';
 import Section from '../components/Section';
+import ExportBar from '../components/ExportBar';
 import formdata from '../fixtures/formdata';
 import ReactMarkdown from 'react-markdown';
 import templates from '../fixtures/templates';
@@ -66,30 +67,33 @@ export default class extends React.Component {
         return sourceData
       }
     } catch (e) {
-      sourceData = '<div style={color: red}>Not all fields complete</div>'
+      sourceData = `<div style='color: red'>Not all fields complete. Final Privacy Notice unavailable</div>`
     }
-    return <div style={{width: '100%', textAlign: 'center'}}>
-      <br /><br />
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
-      <Paper style={{
-        margin: '2rem .5rem',
-        textAlign: 'left',
-        display: 'inline-block',
-        maxWidth: 950,
-        minWidth: 300,
-        padding: '1rem 2rem',
-      }}>
-        <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#dedede'}}>
-          <ToolbarGroup>
-            <ToolbarTitle text={'Preview Full Privacy Notice'} />
-          </ToolbarGroup>
-        </Toolbar>
-        <ReactMarkdown source={sourceData}/>
-      </Paper>
-      </MuiThemeProvider>
-    </div>
+    return <ExportBar sourceData={sourceData} jsonData={this.state}/>
 
   }
+  // <div style={{width: '100%', textAlign: 'center'}}>
+  //   <br /><br />
+  //   <MuiThemeProvider muiTheme={getMuiTheme()}>
+  //   <Paper style={{
+  //     margin: '2rem .5rem',
+  //     textAlign: 'left',
+  //     display: 'inline-block',
+  //     maxWidth: 950,
+  //     minWidth: 300,
+  //     padding: '1rem 2rem',
+  //   }}>
+  //     <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#dedede'}}>
+  //       <ToolbarGroup>
+  //         <ToolbarTitle text={'Preview Full Privacy Notice'} />
+  //       </ToolbarGroup>
+  //     </Toolbar>
+  //     <ReactMarkdown source={sourceData}/>
+  //   </Paper>
+  //   </MuiThemeProvider>
+  // </div>
+
+
   // shouldComponentUpdate({children}, nextState){
   //   return this.props.children !== children;
   // }
@@ -122,10 +126,6 @@ export default class extends React.Component {
       <div style={{textAlign: 'left'}}>
         {this.showMPN()}
       </div>
-      <div style={{textAlign: 'left'}}>
-        <pre>{this.showMPN(true)}</pre>
-      </div>
-      <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(this.state, null, 2)}</pre>
     </div>
   }
 }

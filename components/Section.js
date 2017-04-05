@@ -238,7 +238,7 @@ export default class extends React.Component {
               <ToolbarGroup>
                 <ToolbarTitle text={this.props.title + ' (Preview)'} style={{color: this.state.canSubmit ? '#76c77c' : '#aaa'}} />
               </ToolbarGroup>
-              <ReactMarkdown source={templates[this.props.id].f(this.state.formData)}/>
+              <ReactMarkdown source={templates['header'].styles({})+templates[this.props.id].f(this.state.formData)}/>
             </div>
           </MuiThemeProvider>
         </div>
