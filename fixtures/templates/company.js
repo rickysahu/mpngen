@@ -27,7 +27,7 @@ ${state['company-coveredEntityText'] == 'hipaa_protected' ? `Some of the health 
 `
 }
 function formatSpace (state) {
-  return `<div>${Array(200).fill('&nbsp;').join('')}</div>`
+  return `<div>${Array(120).fill('&nbsp; ').join('')}</div>`
 }
 
 function f (state) {

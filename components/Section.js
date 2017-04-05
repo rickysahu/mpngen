@@ -210,7 +210,7 @@ export default class extends React.Component {
                               onChange={this.changeOtherValue.bind(this)}
                               required={false}
                               hintText={'fill in to check "other" option'}
-                              style={{position: 'relative', lineHeight:'inherit', top:'-.6rem'}}
+                              style={{position: 'relative', lineHeight:'inherit', top:'-.4rem'}}
                               fullWidth={false} />
                           </span>
                         </div>
@@ -227,7 +227,7 @@ export default class extends React.Component {
                   return <div>{q.formType}</div>
                 }
               }.bind(this))}
-              <div dangerouslySetInnerHTML={{__html: Array(200).fill(`&nbsp;`).join('')}} />
+              <div dangerouslySetInnerHTML={{__html: Array(120).fill(`&nbsp; `).join('')}} />
             </Paper>
           </Formsy.Form>
         </MuiThemeProvider>
