@@ -7,7 +7,10 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import ReactMarkdown from 'react-markdown';
+import showdown from 'showdown';
 
+let converter = new showdown.Converter();
+    
 export default class extends React.Component {
   state = {
     openJson: false,
@@ -79,9 +82,9 @@ export default class extends React.Component {
                 <ToolbarTitle text={'Full Privacy Notice'} />
               </ToolbarGroup>
             </Toolbar>
-            <RaisedButton label="Export Markdown" onTouchTap={this.handleMarkdownOpen} />&nbsp;&nbsp;
-            <RaisedButton label="Export HTML" onTouchTap={this.handleHtmlOpen} />&nbsp;&nbsp;
-            <RaisedButton label="Export Answers in JSON " onTouchTap={this.handleJsonOpen} />
+            <RaisedButton primary={true} label="Export Markdown" onTouchTap={this.handleMarkdownOpen} />&nbsp;&nbsp;
+            <RaisedButton primary={true} label="Export HTML" onTouchTap={this.handleHtmlOpen} />&nbsp;&nbsp;
+            <RaisedButton primary={true} label="Export Answers in JSON " onTouchTap={this.handleJsonOpen} />
             <Dialog
               title="Markdown Code"
               contentStyle={{width:'95%', maxWidth: 'none'}}
@@ -102,6 +105,7 @@ export default class extends React.Component {
               onRequestClose={this.handleHtmlClose}
               autoScrollBodyContent={true}
             >
+              <pre>{converter.makeHtml(this.props.sourceData)}</pre>
             </Dialog>
             <Dialog
               title="JSON Answers"
