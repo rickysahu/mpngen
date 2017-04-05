@@ -100,6 +100,32 @@ let sections = [
           field: 'company-coveredEntity',
           value: ['yes']
         },
+        formType: 'text',
+        name: 'hipaaPolicyLink',
+        label: 'What is link for the product\'s full HIPAA Policy',
+        hintText: 'https://1uphealth.care/policy/hipaa',
+        required: false,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
+      },
+      {
+        showif: {
+          field: 'company-coveredEntity',
+          value: ['yes']
+        },
+        formType: 'text',
+        name: 'product',
+        label: 'What is the name of the technology or product?',
+        hintText: '1upHealth Patient App',
+        required: false,
+        validations: {matchRegexp: /^[\s\S]{3,}/},
+        validationError: errorMessages.requiredError,
+      },
+      {
+        showif: {
+          field: 'company-coveredEntity',
+          value: ['yes']
+        },
         formType: 'radio',
         name: 'coveredEntityText',
         label: 'Select one of the following statements to be inserted into the privacy notice:',
