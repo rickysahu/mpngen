@@ -121,6 +121,16 @@ let sections = [
     title: 'Data',
     questions: [
       {
+        helper: 'Primary service',
+        formType: 'text',
+        name: 'primaryService',
+        label: 'What is the primary service of the app or technology',
+        hintText: '1upHealth stores health data from multiple sources',
+        required: true,
+        validations: {matchRegexp: /^[\s\S]{3,}/},
+        validationError: errorMessages.requiredError,
+      },
+      {
         formType: 'checkbox',
         name: 'internal',
         required: true,

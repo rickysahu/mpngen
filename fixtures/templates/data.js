@@ -5,9 +5,29 @@ function f (state) {
   return `
 <br></br>  
 
-## Use: How we use your data internally 
-### We collect and use your identifiable data (2)  
-${state['data-internal-primary'] ? '- To provide the primary service (3) of the app or technology  ' : ''}
+## Use: How we use your data internally  
+<h3>
+  We collect and use your 
+  <div class="tooltip">
+    identifiable data
+    <div class="tooltiptext">
+      Include definition of “identifiable data.” Identifiable data means: 
+      data, such as your name, phone number, email, 
+      address, health services, information on your physical or mental health conditions, or your social security number, 
+      that can be used on its own or with other information to identify you.      
+    </div>
+  </div>
+</h3>
+
+${state['data-internal-primary'] ? `
+<ul><li>To provide the 
+<span class="tooltip">
+  primary service
+  <div class="tooltiptext">
+    ${state['data-primaryService'] || '[data-primaryService]'}
+  </div>
+</span>
+of the app or technology</li></ul>` : ''}
 
 ${state['data-internal-marketing'] ? '- To develop marketing materials for our products  ' : ''}
 

@@ -121,6 +121,15 @@ export default class extends React.Component {
             <br />
             <br />
             <ReactMarkdown source={this.props.sourceData}/>
+            <br />
+            <br />
+            {this.props.sourceData.length < 1000 ? '' : (
+              <div>
+                <RaisedButton primary={true} label="Export Markdown" onTouchTap={this.handleMarkdownOpen} />&nbsp;&nbsp;
+                <RaisedButton primary={true} label="Export HTML" onTouchTap={this.handleHtmlOpen} />&nbsp;&nbsp;
+                <RaisedButton primary={true} label="Export Answers in JSON " onTouchTap={this.handleJsonOpen} />              
+              </div>
+            )}
           </Paper>
         </MuiThemeProvider>
       </div>
