@@ -1,3 +1,5 @@
+import footnotes from '../footnotes.js'
+
 function f (state) {
   if (typeof(state) === 'undefined'){
     state = {}
@@ -11,12 +13,9 @@ function f (state) {
   <div class="tooltip">
     identifiable data
     <div class="tooltiptext">
-      Include definition of “identifiable data.” Identifiable data means: 
-      data, such as your name, phone number, email, 
-      address, health services, information on your physical or mental health conditions, or your social security number, 
-      that can be used on its own or with other information to identify you.      
+      ${footnotes.identifiableData}     
     </div>
-  </div>
+  </div>:
 </h3>
 
 ${state['data-internal-primary'] ? `
@@ -24,7 +23,7 @@ ${state['data-internal-primary'] ? `
 <span class="tooltip">
   primary service
   <div class="tooltiptext">
-    ${state['data-primaryService'] || '[data-primaryService]'}
+    Primary service means: ${state['data-primaryService'] || '[data-primaryService]'}
   </div>
 </span>
 of the app or technology</li></ul>` : ''}
@@ -35,28 +34,77 @@ ${state['data-internal-research'] ? '- To conduct scientific research  ' : ''}
 
 ${state['data-internal-operations'] ? '- For company operations (e.g., quality control or fraud detection)  ' : ''}
 
-${state['data-internal-improve'] ? '- To develop and improve new and current products and services (e.g., analytics (4))  ' : ''}
+${state['data-internal-improve'] ? `
+<ul><li>To develop and improve new and current products and services (e.g., 
+<span class="tooltip">
+  analytics
+  <div class="tooltiptext">
+  ${footnotes.analytics}     
+  </div>
+</span>
+)</li></ul>` : ''}
 
 ${state['data-internal-other-text'] ? '- '+state['data-internal-other-text'].trim()+'  '  : ''}
 <br></br>  
   
 ## Share: How we share your data externally with other companies or entities 
-### We share your identifiable data (5):  
-${state['data-share-primary'] ? '- To provide the primary service (6) of the app or technology  ' : ''}
+<h3>
+  We share your 
+  <div class="tooltip">
+    identifiable data
+    <div class="tooltiptext">
+      ${footnotes.identifiableData}     
+    </div>
+  </div>:
+</h3>
+
+${state['data-share-primary'] ? `
+<ul><li>To provide the 
+<span class="tooltip">
+  primary service
+  <div class="tooltiptext">
+    Primary service means: ${state['data-primaryService'] || '[data-primaryService]'}
+  </div>
+</span>
+of the app or technology</li></ul>` : ''}
 
 ${state['data-share-research'] ? '- To conduct scientific research  ' : ''}
 
 ${state['data-share-operations'] ? '- For company operations (e.g. quality control or fraud detection)  ' : ''}
 
-${state['data-share-improve'] ? '- To develop and improve new and current products and services (e.g., analytics (7))  ' : ''}
+${state['data-share-improve'] ? `
+<ul><li>To develop and improve new and current products and services (e.g., 
+<span class="tooltip">
+  analytics
+  <div class="tooltiptext">
+  ${footnotes.analytics}     
+  </div>
+</span>
+)</li></ul>` : ''}
 
 ${state['data-share-other-text'] ? '- '+state['data-share-other-text'].trim()+'  '  : ''}
   
-${state['data-share-not'] ? '- We DO NOT share your identifiable data (8) ' : ''} 
+${state['data-share-not'] ? `
+<ul><li>We DO NOT share your 
+<span class="tooltip">
+  identifiable data
+  <div class="tooltiptext">
+  ${footnotes.identifiableData}
+  </div>
+</span>
+</li></ul>` : ''}
 <br></br>  
   
 ### We share your data AFTER removing identifiers (note that remaining data may not be anonymous): 
-${state['data-shareAnonymous-primary'] ? '- For the primary purposes of the app or technology  ' : ''}
+${state['data-shareAnonymous-primary'] ? `
+<ul><li>For the 
+<span class="tooltip">
+  primary purposes
+  <div class="tooltiptext">
+    Primary purposes means: ${state['data-primaryService'] || '[data-primaryService]'}
+  </div>
+</span>
+of the app or technology</li></ul>` : ''}
 
 ${state['data-shareAnonymous-research'] ? '- To conduct scientific research  ' : ''}
 
@@ -76,12 +124,37 @@ ${state['data-shareAnonymous-not'] ? '- We DO NOT share your data after removing
     <th style='width:40%;'><strong>Do we sell?<strong></th>
   </tr>
   <tr>
-    <td><strong>We sell your identifiable data (10) to data brokers (11), marketing, advertising networks, or analytics firms.</strong></td>
-    <td>${state['data-sell'] == 'yes' ? 'Yes' : '' } ${state['data-sell'] == 'no' ? 'No' : '' } ${state['data-sell'] == 'permissioned' ? 'Yes; only with your permission (12)' : '' }</td>
+    <td>
+      <strong>
+        We sell your 
+        <span class="tooltip">
+          identifiable data
+          <div class="tooltiptext">
+          ${footnotes.identifiableData}
+          </div>
+        </span>
+        to 
+        <span class="tooltip">
+          data brokers
+          <div class="tooltiptext">
+          ${footnotes.dataBrokers}
+          </div>
+        </span>
+        , marketing, advertising networks, or analytics firms.
+      </strong>
+    </td>
+    <td>${state['data-sell'] == 'yes' ? 'Yes' : '' } ${state['data-sell'] == 'no' ? 'No' : '' } ${state['data-sell'] == 'permissioned' ? `Yes; only <a href='${ state['data-sellPermissionLink'] || `[data-sellPermissionLink]`}'>with your permission</a> ` : '' }</td>
   </tr>
   <tr>
-    <td><strong>We sell your data AFTER removing identifiers (note that remaining data may not be anonymous) to data brokers (13), marketing, advertising networks, or analytics firms.</strong></td>
-    <td>${state['data-sellAnonymous'] == 'yes' ? 'Yes' : '' } ${state['data-sellAnonymous'] == 'no' ? 'No' : '' } ${state['data-sellAnonymous'] == 'permissioned' ? 'Yes; only with your permission (12)' : '' }</td>
+    <td><strong>We sell your data AFTER removing identifiers (note that remaining data may not be anonymous) to 
+    <span class="tooltip">
+      data brokers
+      <div class="tooltiptext">
+      ${footnotes.dataBrokers}
+      </div>
+    </span>
+    , marketing, advertising networks, or analytics firms.</strong></td>
+    <td>${state['data-sellAnonymous'] == 'yes' ? 'Yes' : '' } ${state['data-sellAnonymous'] == 'no' ? 'No' : '' } ${state['data-sellAnonymous'] == 'permissioned' ? `Yes; only <a href='${ state['data-sellAnonymousPermissionLink'] || `[data-sellAnonymousPermissionLink]`}'>with your permission</a> ` : '' }</td>
   </tr>
 </table> 
 `

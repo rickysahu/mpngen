@@ -250,6 +250,19 @@ let sections = [
         ]
       },
       {
+        showif: {
+          field: 'data-sell',
+          value: ['permissioned']
+        },
+        formType: 'text',
+        name: 'sellPermissionLink',
+        label: 'Provide a link on how to adjust permissions',
+        hintText: 'https://1uphealth.care/help/permissions-for-selling',
+        required: true,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
+      },
+      {
         formType: 'radio',
         name: 'sellAnonymous',
         required: true,
@@ -268,6 +281,19 @@ let sections = [
             value:`no`,
           },
         ]
+      },
+      {
+        showif: {
+          field: 'data-sellAnonymous',
+          value: ['permissioned']
+        },
+        formType: 'text',
+        name: 'sellAnonymousPermissionLink',
+        label: 'Provide a link on how to adjust permissions',
+        hintText: 'https://1uphealth.care/help/permissions-for-selling',
+        required: true,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
       },
     ]
   },

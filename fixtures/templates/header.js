@@ -32,7 +32,7 @@ function styles (state) {
   .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 3px solid #76c77c;
+    border-bottom: 3px solid #7fda85;
   }
 
   /* Tooltip text */
