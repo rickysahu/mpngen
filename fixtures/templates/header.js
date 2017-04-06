@@ -2,14 +2,14 @@ function styles (state) {
   return `
 <style>
   h2 {
-    color: #76c77c;
-    font-weight: 200;
-    background-color: #444;
+    color: #3dace3;
+    font-weight: 400;
+    background-color: #ebebeb;
     padding: 1.5rem;
     margin-bottom: 0px;
   }
   a {
-    color: #76c77c;
+    color: #3dace3;
   }
 
   /* Table styles */
@@ -22,7 +22,7 @@ function styles (state) {
     border: 1px solid #eee
   }
   th {
-    background-color: #ddd;
+    background-color: #f7f7f7;
   }
   th:last-child, td:last-child {
     width: 40%;
@@ -32,7 +32,7 @@ function styles (state) {
   .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 3px solid #7fda85;
+    border-bottom: 3px solid #ddd;
   }
 
   /* Tooltip text */

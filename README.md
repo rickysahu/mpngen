@@ -43,9 +43,9 @@ npm start
 [ ] Tooltips in CSS for footnotes, so no external JS dependencies needed
 
 ### Feedback TODOs
-[ ] improve style, reduce contrast of resulting mpn headers
+[x] improve style, reduce contrast of resulting mpn headers
 - tone down black background on headings
-[ ] intro messaging
+[x] intro messaging
 - make it "lets build your privacy notice"
 - explain UX, form validation
 - rephrase "to get started, jump right into the form"

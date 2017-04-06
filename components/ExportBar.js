@@ -82,9 +82,12 @@ export default class extends React.Component {
                 <ToolbarTitle text={'Full Privacy Notice'} />
               </ToolbarGroup>
             </Toolbar>
-            <RaisedButton primary={true} label="Export Markdown" onTouchTap={this.handleMarkdownOpen} />&nbsp;&nbsp;
-            <RaisedButton primary={true} label="Export HTML" onTouchTap={this.handleHtmlOpen} />&nbsp;&nbsp;
-            <RaisedButton primary={true} label="Export Answers in JSON " onTouchTap={this.handleJsonOpen} />
+            <div>
+              <h1>Export Options</h1>
+              <RaisedButton primary={true} label="Markdown" onTouchTap={this.handleMarkdownOpen} />&nbsp;&nbsp;
+              <RaisedButton primary={true} label="HTML" onTouchTap={this.handleHtmlOpen} />&nbsp;&nbsp;
+              <RaisedButton primary={true} label="JSON Answers" onTouchTap={this.handleJsonOpen} />              
+            </div>
             <Dialog
               title="Markdown Code"
               contentStyle={{width:'95%', maxWidth: 'none'}}
@@ -125,9 +128,10 @@ export default class extends React.Component {
             <br />
             {this.props.sourceData.length < 1000 ? '' : (
               <div>
-                <RaisedButton primary={true} label="Export Markdown" onTouchTap={this.handleMarkdownOpen} />&nbsp;&nbsp;
-                <RaisedButton primary={true} label="Export HTML" onTouchTap={this.handleHtmlOpen} />&nbsp;&nbsp;
-                <RaisedButton primary={true} label="Export Answers in JSON " onTouchTap={this.handleJsonOpen} />              
+                <h1>Export Options</h1>
+                <RaisedButton primary={true} label="Markdown" onTouchTap={this.handleMarkdownOpen} />&nbsp;&nbsp;
+                <RaisedButton primary={true} label="HTML" onTouchTap={this.handleHtmlOpen} />&nbsp;&nbsp;
+                <RaisedButton primary={true} label="JSON Answers" onTouchTap={this.handleJsonOpen} />
               </div>
             )}
           </Paper>

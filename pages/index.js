@@ -107,15 +107,15 @@ export default class extends React.Component {
     return <div style={{fontFamily: 'system-ui, Roboto, Helvetica, Sans-Serif', lineHeight: '1.5rem'}}>
       <div style={{textAlign:'center'}}>
         <h1 >mpn gen (1upHealth)</h1>
-        <h1 style={{lineHeight: '2rem'}}>{`Let's Build Your Model Privacy Notice`}</h1>
+        <h1 style={{lineHeight: '2rem'}}>{`Let's Build Your Privacy Notice`}</h1>
         <div style={{textAlign: 'center', display:'block', width: '100%'}}>
           <div style={{textAlign: 'left', display:'inline-block', maxWidth: '600'}}>
             Welcome to the <a href='https://1uphealth.care'>1upHealth</a> Model Privacy Notice Generator (mpn gen). This project is a response to the USA Challenge.gov Healthcare Privacy Policy Snapshot Challenge.
             <br /><br />
-            Mpn Gen has many features including form validation, multi-device friendly layout, and helpful UX to guide users through the process. The left hand side presents inputs for the Model Privacy Notice. The right hand side shows snippets of the output. You can learn <a href='/'>more about the features here</a>. 
-            <h3>Go ahead and <a href='#sticky-prev'>jump right into the form</a> to see how it works.</h3>
+            Mpn Gen has many features including form validation, multi-device friendly layout, and helpful user experience to guide users through the process. The left side presents inputs for the Model Privacy Notice. The right side shows snippets of the output. You can learn <a href='/'>more about the features here</a>. 
+            <h3>To get started <a href='#sticky-prev'>jump right into the form</a></h3>
             <br />
-            <h2>Preamble for Health Technology Developers</h2>
+            <h2>FAQ for Health Technology Developers</h2>
             <h3>What is the Model Privacy Notice (MPN)?</h3>
             The MPN is a voluntary, openly available resource to help health technology developers who collect digital health data clearly convey information about their privacy policies to their users. Similar to a nutritional label, the MPN provides a snapshot of a company’s existing privacy and security policies to encourage transparency and help consumers make informed choices when selecting products. The MPN does not mandate specific policies or substitute for more comprehensive or detailed privacy policies. 
             <h3>Who is the MPN for?</h3>
@@ -126,9 +126,9 @@ export default class extends React.Component {
                 {footnotes.healthData}
               </div>
             </div>
-            <h3>What laws might apply to you?</h3>Health technology developers should consult the Federal Trade Commission (FTC)’s Mobile Health Apps Interactive Tool(which was developed in conjunction with the following Department of Health and Human Services offices and agency: ONC, Office for Civil Rights (OCR), and the Food and Drug Administration (FDA)) to determine if they need to comply with the FTC Act, the FTC’s Health Breach Notification Rule, HHS’s Health Insurance Portability and Accountability Act (HIPAA) Privacy, Security and Breach Notification Rules, or FDA rules implementing the Federal Food, Drug & Cosmetic Act, as applicable. This tool is not meant to be legal advice about all compliance obligations, but identifies relevant laws and regulations from these three federal agencies.            
+            <h3>What laws might apply to you?</h3>Health technology developers should consult the Federal Trade Commission (FTC)’s <a rel='nofollow' target='blank' href='https://www.ftc.gov/tips-advice/business-center/guidance/mobile-health-apps-interactive-tool'>Mobile Health Apps Interactive Tool</a> (which was developed in conjunction with the following Department of Health and Human Services offices and agency: ONC, Office for Civil Rights (OCR), and the Food and Drug Administration (FDA)) to determine if they need to comply with the FTC Act, the FTC’s Health Breach Notification Rule, HHS’s Health Insurance Portability and Accountability Act (HIPAA) Privacy, Security and Breach Notification Rules, or FDA rules implementing the Federal Food, Drug & Cosmetic Act, as applicable. This tool is not meant to be legal advice about all compliance obligations, but identifies relevant laws and regulations from these three federal agencies.            
             <h3>Does use of this MPN satisfy HIPAA requirements to provide a notice of privacy practices?</h3>
-            No. The MPN does not ensure compliance with HIPAA or any other law. However, the MPN may be used, as applicable, in conjunction with a HIPAA notice of privacy practices (please see MPN). To find more information on HIPAA directed towards health technology developers, visit the HIPAA Q’s Portal for Health App Developers. 
+            No. The MPN does not ensure compliance with HIPAA or any other law. However, the MPN may be used, as applicable, in conjunction with a HIPAA notice of privacy practices (please see MPN). To find more information on HIPAA directed towards health technology developers, visit the <a rel='nofollow' target='blank' href='http://hipaaqsportal.hhs.gov/'>HIPAA Q’s Portal for Health App Developers</a>. 
           </div>
         </div>
         <br /><br />

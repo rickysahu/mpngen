@@ -66,7 +66,7 @@ let sections = [
       {
         formType: 'text',
         name: 'address',
-        label: 'Address',
+        label: 'Full Address, City & Zip code',
         hintText: '225 Centre St. Boston MA, 02119',
         required: false,
         validations: {matchRegexp: /^[\s\S]{3,}/},

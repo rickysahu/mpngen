@@ -18,7 +18,7 @@ let styles = {
   questionHeader: {
     fontSize: '1.5rem',
     lineHeight: '2rem',
-    color: '#76c77c'
+    color: '#3dace3'
   },
   paperStyle: {
     margin: '2rem .5rem',
