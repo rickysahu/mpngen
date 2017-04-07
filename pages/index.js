@@ -106,15 +106,17 @@ export default class extends React.Component {
   render () {
     return <div style={{fontFamily: 'system-ui, Roboto, Helvetica, Sans-Serif', lineHeight: '1.5rem'}}>
       <div style={{textAlign:'center'}}>
-        <h1 >mpn gen (1upHealth)</h1>
+        <h1 >MPN GEN (1upHealth)</h1>
         <h1 style={{lineHeight: '2rem'}}>{`Let's Build Your Privacy Notice`}</h1>
         <div style={{textAlign: 'center', display:'block', width: '100%'}}>
           <div style={{textAlign: 'left', display:'inline-block', maxWidth: '600'}}>
             Welcome to the <a href='https://1uphealth.care'>1upHealth</a> Model Privacy Notice Generator (mpn gen). This project is a response to the USA Challenge.gov Healthcare Privacy Policy Snapshot Challenge.
             <br /><br />
-            Mpn Gen has many features including form validation, multi-device friendly layout, and helpful user experience to guide users through the process. The left side presents inputs for the Model Privacy Notice. The right side shows snippets of the output. You can learn <a href='/'>more about the features here</a>. 
+            MPN GEN has many features including form validation, multi-device friendly layout, and helpful user experience to guide users through the process. The left side presents inputs for the Model Privacy Notice. The right side shows snippets of the output. You can learn <a href='/'>more about the features here</a>. 
             <h3>To get started <a href='#mpngen'>jump right into the form</a> or read on for more background.</h3>
             <br />
+            <h3>MPN GEN Video</h3>
+            <img src='./static/mpn-gen.gif' width='100%' style={{border: '1px solid #eee', borderRadius: '3px'}}/>
             <h1>2016 Model Privacy Notice</h1>
             <h2>Draft Preamble</h2>
             <h3>As of December 2, 2016</h3>

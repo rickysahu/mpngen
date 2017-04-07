@@ -52,7 +52,7 @@ npm start
 - remove left hand right hand, just say left / right
 - change style of tooltips, too similar to a link
 - add back original links for preamble 
-[ ] improve the look of the landing experience
+[x] improve the look of the landing experience
 [x] fix top header of mpn sections
 - rename company to contact
 - rename data to data use
