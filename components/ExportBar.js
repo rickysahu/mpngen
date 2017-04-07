@@ -46,7 +46,7 @@ export default class extends React.Component {
   handleJsonClose = () => {
     this.setState({openJson: false});
   };
-
+  
   render() {
     const actions = [
       <FlatButton
@@ -69,72 +69,76 @@ export default class extends React.Component {
     return (
       <div style={{width: '100%', textAlign: 'center'}}>
         <MuiThemeProvider muiTheme={getMuiTheme()}>
-          <Paper style={{
-            margin: '2rem .5rem',
-            textAlign: 'left',
-            display: 'inline-block',
-            maxWidth: 950,
-            minWidth: 300,
-            padding: '1rem 2rem',
-          }}>
-            <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#dedede'}}>
-              <ToolbarGroup>
-                <ToolbarTitle text={'Full Privacy Notice'} />
-              </ToolbarGroup>
-            </Toolbar>
+          <div>
             <div>
-              <h1>Export Options</h1>
+              <h1>Export Privacy Notice As</h1>
               <RaisedButton primary={true} label="Markdown" onTouchTap={this.handleMarkdownOpen} />&nbsp;&nbsp;
               <RaisedButton primary={true} label="HTML" onTouchTap={this.handleHtmlOpen} />&nbsp;&nbsp;
               <RaisedButton primary={true} label="JSON Answers" onTouchTap={this.handleJsonOpen} />              
-            </div>
-            <Dialog
-              title="Markdown Code"
-              contentStyle={{width:'95%', maxWidth: 'none'}}
-              actions={[actions[0]]}
-              modal={false}
-              open={this.state.openMarkdown}
-              onRequestClose={this.handleMarkdownClose}
-              autoScrollBodyContent={true}
-            >
-              <pre>{this.props.sourceData}</pre>
-            </Dialog>
-            <Dialog
-              title="HTML Code"
-              contentStyle={{width:'95%', maxWidth: 'none'}}
-              actions={[actions[1]]}
-              modal={false}
-              open={this.state.openHtml}
-              onRequestClose={this.handleHtmlClose}
-              autoScrollBodyContent={true}
-            >
-              <pre>{converter.makeHtml(this.props.sourceData)}</pre>
-            </Dialog>
-            <Dialog
-              title="JSON Answers"
-              contentStyle={{width:'95%', maxWidth: 'none'}}
-              actions={[actions[2]]}
-              modal={false}
-              open={this.state.openJson}
-              onRequestClose={this.handleJsonClose}
-              autoScrollBodyContent={true}
-            >
-              <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(this.props.jsonData, null, 2)}</pre>
-            </Dialog>
-            <br />
-            <br />
-            <ReactMarkdown source={this.props.sourceData}/>
-            <br />
-            <br />
+            </div>   
+            <Paper style={{
+              margin: '2rem .5rem',
+              textAlign: 'left',
+              display: 'inline-block',
+              maxWidth: 950,
+              minWidth: 300,
+              padding: '1rem 2rem',
+            }}>
+              <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#dedede'}}>
+                <ToolbarGroup>
+                  <ToolbarTitle text={'Full Privacy Notice'} />
+                </ToolbarGroup>
+              </Toolbar>
+              <Dialog
+                title="Markdown Code"
+                contentStyle={{width:'95%', maxWidth: 'none'}}
+                actions={[actions[0]]}
+                modal={false}
+                open={this.state.openMarkdown}
+                onRequestClose={this.handleMarkdownClose}
+                autoScrollBodyContent={true}
+              >
+                <pre>{this.props.sourceData}</pre>
+              </Dialog>
+              <Dialog
+                title="HTML Code"
+                contentStyle={{width:'95%', maxWidth: 'none'}}
+                actions={[actions[1]]}
+                modal={false}
+                open={this.state.openHtml}
+                onRequestClose={this.handleHtmlClose}
+                autoScrollBodyContent={true}
+              >
+                <pre>{converter.makeHtml(this.props.sourceData)}</pre>
+              </Dialog>
+              <Dialog
+                title="JSON Answers"
+                contentStyle={{width:'95%', maxWidth: 'none'}}
+                actions={[actions[2]]}
+                modal={false}
+                open={this.state.openJson}
+                onRequestClose={this.handleJsonClose}
+                autoScrollBodyContent={true}
+              >
+                <pre style={{fontFamily: 'courier, monospace'}}>{JSON.stringify(this.props.jsonData, null, 2)}</pre>
+              </Dialog>
+              <br />
+              <br />
+              <ReactMarkdown source={this.props.sourceData}/>
+              <br />
+              <br />
+            </Paper>
             {this.props.sourceData.length < 1000 ? '' : (
               <div>
-                <h1>Export Options</h1>
+                <h1>Export Privacy Notice As</h1>
                 <RaisedButton primary={true} label="Markdown" onTouchTap={this.handleMarkdownOpen} />&nbsp;&nbsp;
                 <RaisedButton primary={true} label="HTML" onTouchTap={this.handleHtmlOpen} />&nbsp;&nbsp;
                 <RaisedButton primary={true} label="JSON Answers" onTouchTap={this.handleJsonOpen} />
               </div>
             )}
-          </Paper>
+            <br />
+            <br />
+          </div>
         </MuiThemeProvider>
       </div>
     );

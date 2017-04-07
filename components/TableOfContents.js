@@ -43,9 +43,7 @@ export default class extends React.Component {
       <div id="sticky-prev">
         <strong>
         <br/>
-        The MPN Generator will guide you through completing these topics. 
-        <br/>
-        Each section will be automatically checked as you complete it.
+        Each of these sections will be automatically checked as you complete them.
         </strong>
       </div>
       <div id="sticky-holder" style={{display:'none', height:'3rem'}}>&nbsp;</div>

@@ -59,10 +59,30 @@ let sections = [
         ]
       },
       {
+        formType: 'radio',
+        name: 'shareDoYou',
+        required: true,
+        label: 'Is your identifiable data shared?',
+        header: 'Share: How we share your data externally with other companies or entities',
+        choices: [
+          {
+            label:`Yes`,
+            value:`yes`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+        ]
+      },
+      {
+        showif: {
+          field: 'data-shareDoYou',
+          value: ['yes']
+        },
         formType: 'checkbox',
         name: 'share',
         required: true,
-        header: 'Share: How we share your data externally with other companies or entities',
         label: 'We share your identifiable data:',
         choices: [
           {
@@ -82,16 +102,32 @@ let sections = [
             value:`improve`,
           },
           {
-            label:`We DO NOT share your identifiable data`,
-            value:`not`,
-          },
-          {
             label:`Other`,
             value:`other`,
           },
         ]
       },
       {
+        formType: 'radio',
+        name: 'shareAnonymousDoYou',
+        required: true,
+        label: 'Is your data shared AFTER removing identifiers (note that remaining data may not be anonymous):',
+        choices: [
+          {
+            label:`Yes`,
+            value:`yes`,
+          },
+          {
+            label:`No`,
+            value:`no`,
+          },
+        ]
+      },
+      {
+        showif: {
+          field: 'data-shareAnonymousDoYou',
+          value: ['yes']
+        },
         formType: 'checkbox',
         name: 'shareAnonymous',
         required: true,
@@ -112,10 +148,6 @@ let sections = [
           {
             label:`To develop and improve new and current products and services (e.g., analytics)`,
             value:`improve`,
-          },
-          {
-            label:`We DO NOT share your data after removing identifiers`,
-            value:`not`,
           },
           {
             label:`Other`,
@@ -290,10 +322,17 @@ let sections = [
         ]
       },
       {
+        formType: 'none',
+        header: `Encryption: How we encrypt your data`,
+      },
+      {
+        showif: {
+          field: 'security-storeOndevice',
+          value: ['yes']
+        },
         formType: 'radio',
         name: 'encryptDevice',
         required: true,
-        header: `Encryption: How we encrypt your data`,
         label: 'Does the app or technology use encryption to encrypt your data in the device or app?',
         choices: [
           {
@@ -307,10 +346,6 @@ let sections = [
           {
             label:`No`,
             value:`no`,
-          },
-          {
-            label:`N/A`,
-            value:`na`,
           },
         ]
       },
@@ -328,6 +363,10 @@ let sections = [
         validationError: errorMessages.urlError,
       },
       {
+        showif: {
+          field: 'security-storeOffdevice',
+          value: ['yes']
+        },
         formType: 'radio',
         name: 'encryptServer',
         required: true,
@@ -344,10 +383,6 @@ let sections = [
           {
             label:`No`,
             value:`no`,
-          },
-          {
-            label:`N/A`,
-            value:`na`,
           },
         ]
       },

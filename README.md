@@ -40,7 +40,7 @@ npm start
 [x] Conditional questions appear only when needed  
 [x] Other entry  
 [x] Question Schema controls all questions to be asked  
-[ ] Tooltips in CSS for footnotes, so no external JS dependencies needed
+[x] Tooltips in CSS for footnotes, so no external JS dependencies needed
 
 ### User Feedback TODOs
 [x] improve style, reduce contrast of resulting mpn headers
@@ -73,11 +73,11 @@ npm start
 - add the header to the first contact section
 - move contact info to the bottom
 - suggest name & address at top, phone, email, then contact / policy
-[ ] fix the we do not share your data to remove all other checks
+[x] fix the we do not share your data to remove all other checks
 - if data not stored on device, automatically select not applicable
 [x] Does this technology or app allow you to share the collected data with your social media accounts, like Facebook?
 - clarify settings are for social settings, only request external url
-[ ] improve export section
+[x] improve export section
 - required messaging: clarify that you have to fill out everything that 
 - create some method to save work
 - separate the export options

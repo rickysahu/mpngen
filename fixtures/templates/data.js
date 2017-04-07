@@ -84,7 +84,7 @@ ${state['data-share-improve'] ? `
 
 ${state['data-share-other-text'] ? '- '+state['data-share-other-text'].trim()+'  '  : ''}
   
-${state['data-share-not'] ? `
+${state['data-shareDoYou'] == 'no' ? `
 <ul><li>We DO NOT share your 
 <span class="tooltip">
   identifiable data
@@ -107,7 +107,7 @@ ${state['data-shareAnonymous-improve'] ? '- To develop and improve new and curre
 
 ${state['data-shareAnonymous-other-text'] ? '- '+state['data-shareAnonymous-other-text'].trim()+'  '  : ''}
   
-${state['data-shareAnonymous-not'] ? '- We DO NOT share your data after removing identifiers  ' : ''}  
+${state['data-shareAnonymousDoYou'] == 'no' ? '- We DO NOT share your data after removing identifiers  ' : ''}  
 <br></br>  
 
 ## Sell: Who we sell your data to 

@@ -224,7 +224,7 @@ export default class extends React.Component {
                     }.bind(this))}
                   </div>
                 } else {
-                  return <div>{q.formType}</div>
+                  return <div style={styles.questionHeader}>{q.header ? <span><br />{q.header}</span> : ''}</div>
                 }
               }.bind(this))}
               <div dangerouslySetInnerHTML={{__html: Array(120).fill(`&nbsp; `).join('')}} />

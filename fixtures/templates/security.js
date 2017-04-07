@@ -53,7 +53,7 @@ function f (state) {
       </div>
     </div>    
     to encrypt your data in the device or app? </strong></td>
-    <td>${state['security-encryptDevice'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptDevice'] == 'no' ? 'No' : '' } ${state['security-encryptDevice'] == 'na' ? 'N/A' : '' } ${state['security-encryptDevice'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptDeviceLink'] || `[security-encryptDeviceLink]`}'>click to learn how</a>)` : '' }</td>
+    <td>${state['security-encryptDevice'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptDevice'] == 'no' ? 'No' : '' } ${typeof state['security-encryptDevice'] == 'undefined' ? 'N/A' : '' } ${state['security-encryptDevice'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptDeviceLink'] || `[security-encryptDeviceLink]`}'>click to learn how</a>)` : '' }</td>
   </tr>
   <tr>
     <td><strong>Does the app or technology use 
@@ -71,7 +71,7 @@ function f (state) {
       </div>
     </div>    
     services provider?</strong></td>
-    <td>${state['security-encryptServer'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptServer'] == 'no' ? 'No' : '' } ${state['security-encryptServer'] == 'na' ? 'N/A' : '' } ${state['security-encryptServer'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptServerLink'] || `[security-encryptServerLink]`}'>click to learn how</a>)` : '' }</td>
+    <td>${state['security-encryptServer'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptServer'] == 'no' ? 'No' : '' } ${typeof state['security-encryptServer'] == 'undefined' ? 'N/A' : '' } ${state['security-encryptServer'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptServerLink'] || `[security-encryptServerLink]`}'>click to learn how</a>)` : '' }</td>
   </tr>
   <tr>
     <td><strong>Does the app or technology use
@@ -113,23 +113,4 @@ ${state['security-privacyappsDevices-camera'] ? '<li>Camera</li>' : ''} ${state[
 module.exports = {
   hipaa: hipaa,
   f: f
-}
-
-let data = {
-	"formData": {
-		"security-encryptDevice": "",
-		"security-encryptServer": "",
-		"security-encryptTransmit": "",
-		"security-privacyappsAccess": "",
-		"security-privacyappsDevices-camera": false,
-		"security-privacyappsDevices-photo": false,
-		"security-privacyappsDevices-contacts": false,
-		"security-privacyappsDevices-location": false,
-		"security-privacyappsDevices-microphone": false,
-		"security-privacyappsDevices-health": false,
-		"security-privacyappsDevices-other-text": "",
-		"security-privacyappsSetting": "",
-		"security-privacyappsSocial": ""
-	},
-	"canSubmit": false
 }
