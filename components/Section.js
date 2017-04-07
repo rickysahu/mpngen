@@ -131,10 +131,10 @@ export default class extends React.Component {
             style={{display: 'inline-block'}}
             ref="form" >
             <br /><br />
-            <Paper style={styles.paperStyle}>
-              <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#dedede'}}>
+            <div style={styles.paperStyle}>
+              <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: '#fff'}}>
                 <ToolbarGroup>
-                  <ToolbarTitle text={this.props.title} />
+                  <ToolbarTitle text={this.props.title} style={{fontSize: '2.5rem', color: this.state.canSubmit ? '#7fda85' : '#7f7f7f'}} />
                 </ToolbarGroup>
               </Toolbar>
               {this.props.questions.map(function(q){
@@ -228,18 +228,20 @@ export default class extends React.Component {
                 }
               }.bind(this))}
               <div dangerouslySetInnerHTML={{__html: Array(120).fill(`&nbsp; `).join('')}} />
-            </Paper>
+            </div>
           </Formsy.Form>
         </MuiThemeProvider>
         <div style={{display: 'inline-block', fontSize: '.8rem'}}>
           <br /><br />
           <MuiThemeProvider muiTheme={getMuiTheme()}>
-            <div style={styles.paperMDStyle}>
-              <ToolbarGroup>
-                <ToolbarTitle text={this.props.title + ' (Preview)'} style={{color: this.state.canSubmit ? '#76c77c' : '#aaa'}} />
-              </ToolbarGroup>
+            <Paper style={styles.paperMDStyle}>
+              <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -1rem 0rem -1rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#eee'}}>
+                <ToolbarGroup>
+                  <ToolbarTitle text={this.props.title + ' (Preview)'} />
+                </ToolbarGroup>
+              </Toolbar>
               <ReactMarkdown source={templates['header'].styles({})+templates[this.props.id].f(this.state.formData)}/>
-            </div>
+            </Paper>
           </MuiThemeProvider>
         </div>
       </div>

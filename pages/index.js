@@ -59,7 +59,7 @@ export default class extends React.Component {
         this.state.security.form, 
         this.state.user.form);
       sourceData += templates['header'].f(fullForm)
-      sourceData += templates['company'].hipaa(fullForm)
+      sourceData += templates['security'].hipaa(fullForm)
       sourceData += templates['data'].f(fullForm)
       sourceData += templates['security'].f(fullForm)
       sourceData += templates['user'].f(fullForm)
@@ -113,9 +113,16 @@ export default class extends React.Component {
             Welcome to the <a href='https://1uphealth.care'>1upHealth</a> Model Privacy Notice Generator (mpn gen). This project is a response to the USA Challenge.gov Healthcare Privacy Policy Snapshot Challenge.
             <br /><br />
             Mpn Gen has many features including form validation, multi-device friendly layout, and helpful user experience to guide users through the process. The left side presents inputs for the Model Privacy Notice. The right side shows snippets of the output. You can learn <a href='/'>more about the features here</a>. 
-            <h3>To get started <a href='#sticky-prev'>jump right into the form</a></h3>
+            <h3>To get started <a href='#mpngen'>jump right into the form</a> or read on for more background.</h3>
             <br />
-            <h2>FAQ for Health Technology Developers</h2>
+            <h1>2016 Model Privacy Notice</h1>
+            <h2>Draft Preamble</h2>
+            <h3>As of December 2, 2016</h3>
+            The Model Privacy Notice (MPN) is a voluntary, openly available resource designed to help health technology developers provide transparent notice to consumers about what happens to their digital health data when the consumer uses the developer’s product. The MPN’s approach is to provide a standardized, easy-to-use framework to help developers clearly convey information about privacy and security to their users. The MPN does not mandate specific policies or substitute for more comprehensive or detailed privacy policies. 
+            <br/>
+            <br/>
+            The Office of the National Coordinator for Health Information Technology (ONC) is updating the 2011 version of the MPN. The 2011 version focused on personal health records (PHRs), which were the emerging technology at the time. The health information technology market has changed significantly in the last five years and there is now a larger variety of products such as exercise trackers, wearable health technologies, or mobile applications that help individuals monitor various body measurements. As such, it is increasingly important for consumers to be aware of health technology developers’ privacy and security policies, including data sharing practices. 
+            <h2>Preamble for Health Technology Developers</h2>
             <h3>What is the Model Privacy Notice (MPN)?</h3>
             The MPN is a voluntary, openly available resource to help health technology developers who collect digital health data clearly convey information about their privacy policies to their users. Similar to a nutritional label, the MPN provides a snapshot of a company’s existing privacy and security policies to encourage transparency and help consumers make informed choices when selecting products. The MPN does not mandate specific policies or substitute for more comprehensive or detailed privacy policies. 
             <h3>Who is the MPN for?</h3>
@@ -132,6 +139,11 @@ export default class extends React.Component {
           </div>
         </div>
         <br /><br />
+        <h2 id='mpngen'>Create a Custom Model Privacy Notice</h2>
+        <br />
+        <div style={{textAlign: 'left', display:'inline-block', maxWidth: '600'}}>
+          The MPN generator will help you create a Consumer Privacy Notice. It requires you provide links to a full company Privacy Policy, and, if applicable, HIPAA Notice of Privacy Practices and documentation for adjusting certain user perferences.
+        </div>
         <TableOfContents parentState={this.state}/>
       </div>
       {

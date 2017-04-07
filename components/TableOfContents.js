@@ -40,8 +40,14 @@ export default class extends React.Component {
 
   render() {
     return <div>
-      <div id="sticky-prev">The MPN Generator will guide you through completing these steps</div>
-      <span id="company"></span>
+      <div id="sticky-prev">
+        <strong>
+        <br/>
+        The MPN Generator will guide you through completing these topics. 
+        <br/>
+        Each section will be automatically checked as you complete it.
+        </strong>
+      </div>
       <div id="sticky-holder" style={{display:'none', height:'3rem'}}>&nbsp;</div>
       <div id="sticky" style={{ marginLeft:'-10px', padding: '1rem .5rem', position: 'relative', width: '100%', top:0, backgroundColor: '#fff', zIndex: 100}}>
       {formdata.map(function(section){

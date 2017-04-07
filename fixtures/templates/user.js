@@ -46,9 +46,10 @@ ${state['user-privacyPolicyChangeLink'] ? `<br>Find out more in the [Changes sec
     </div>
   </div>: How we will notify you and protect your data in case of an improper disclosure
 </h2>
-${state['company-legalName'] || '[company-legalName]'} complies with all applicable laws regarding breaches.  
+${state['company-legalName'] || 'Our company'} complies with all applicable laws regarding breaches.  
 ${state['user-useraccessNotification'] ? state['user-useraccessNotification'] : '[user-useraccessNotification]' }
-${state['user-privacyPolicyBreachLink'] ? `<br>Find out more in the [Breach section of our Privacy Policy](${state['user-privacyPolicyBreachLink']}).` : '[user-privacyPolicyBreachLink]' }
+
+${state['user-privacyPolicyBreachLink'] ? `Find out more in the [Breach section of our Privacy Policy](${state['user-privacyPolicyBreachLink']}).` : '[user-privacyPolicyBreachLink]' }
 `
 }
 module.exports = {

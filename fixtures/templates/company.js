@@ -15,17 +15,6 @@ ${state['company-country'] || "[company-country]"}
 `
 }
 
-function hipaa (state) {
-  return `
-${state['company-coveredEntity'] == 'yes' ? `
-<br></br>
-## ${state['company-legalName'] || '[company-legalName]'} is a HIPAA Covered Entity
-${state['company-coveredEntityText'] == 'not_hipaa_protected' ? `Please note that the health data we collect as part of this ${state['company-product'] || '[company-product]'} are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply` : ''}
-${state['company-coveredEntityText'] == 'hipaa_protected' ? `Some of the health data we collect as part of this ${state['company-product'] || '[company-product]'} also are protected by HIPAA. Read our [HIPAA Notice of Privacy Practices](${state['company-hipaaPolicyLink'] || "[company-hipaaPolicyLink]"}) for more information.` : ''}
-` : ''}
-  
-`
-}
 function formatSpace (state) {
   return `<div>${Array(120).fill('&nbsp; ').join('')}</div>`
 }
@@ -34,11 +23,10 @@ function f (state) {
   if (typeof(state) === 'undefined'){
     state = {}
   }
-  return contact(state) + hipaa(state) + formatSpace(state)
+  return contact(state) + formatSpace(state)
 }
 
 module.exports = {
   f: f,
-  hipaa: hipaa,
   contact: contact
 }

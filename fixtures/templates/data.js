@@ -97,14 +97,7 @@ ${state['data-share-not'] ? `
   
 ### We share your data AFTER removing identifiers (note that remaining data may not be anonymous): 
 ${state['data-shareAnonymous-primary'] ? `
-<ul><li>For the 
-<span class="tooltip">
-  primary purposes
-  <div class="tooltiptext">
-    Primary purposes means: ${state['data-primaryService'] || '[data-primaryService]'}
-  </div>
-</span>
-of the app or technology</li></ul>` : ''}
+<ul><li>For the primary purposes of the app or technology</li></ul>` : ''}
 
 ${state['data-shareAnonymous-research'] ? '- To conduct scientific research  ' : ''}
 
@@ -162,19 +155,4 @@ ${state['data-shareAnonymous-not'] ? '- We DO NOT share your data after removing
 
 module.exports = {
   f: f
-}
-
-
-let data = {
-	"formData": {
-		"data-shareAnonymous-primary": false,
-		"data-shareAnonymous-research": false,
-		"data-shareAnonymous-operations": false,
-		"data-shareAnonymous-improve": false,
-    "data-shareAnonymous-other-text": "",
-		"data-shareAnonymous-not": false,
-		"data-sell": "",
-		"data-sellAnonymous": ""
-	},
-	"canSubmit": false
 }

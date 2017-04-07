@@ -12,6 +12,10 @@ function styles (state) {
     color: #3dace3;
   }
 
+  .mpn: {
+    font-family: "Times New Roman", Georgia, Serif;
+  }
+
   /* Table styles */
   table {
     border-collapse: collapse
@@ -32,7 +36,7 @@ function styles (state) {
   .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 3px solid #ddd;
+    border-bottom: 3px solid #ccc;
   }
 
   /* Tooltip text */

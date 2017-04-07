@@ -3,7 +3,7 @@ let errorMessages = {
   wordsError: "Please only use letters",
   numericError: "Please provide a number",
   requiredError: "This field is required",
-  urlError: "Please provide a valid URL",
+  urlError: "Please provide a valid URL starting with http:// or https://",
   emailError: "Please provide a valid email",
   phoneError: "Please provide a valid phone number",
 }
@@ -12,139 +12,8 @@ let countries = ["Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra
 
 let sections = [
   {
-    id: 'company',
-    title: 'Company',
-    questions: [
-      {
-        helper: 'Basic Info',
-        formType: 'text',
-        name: 'legalName',
-        label: 'Legal entity name',
-        hintText: '1upHealth, Inc.',
-        required: true,
-        validations: {},
-        validationError: errorMessages.requiredError,
-      },
-      {
-        formType: 'text',
-        name: 'privacyPolicyLink',
-        label: 'Link to full privacy policy',
-        hintText: 'https://1uphealth.care/privacy-policy',
-        required: true,
-        validations: 'isUrl',
-        validationError: errorMessages.urlError,
-      },
-      {
-        helper: 'Contact',
-        formType: 'text',
-        name: 'contactLink',
-        label: 'Link online contact or coment form',
-        hintText: 'https://1uphealth.care/contact-us',
-        required: true,
-        validations: 'isUrl',
-        validationError: errorMessages.urlError,
-      },
-      {
-        formType: 'text',
-        name: 'email',
-        label: 'Company email address',
-        hintText: 'hello@1uphealth.care',
-        required: true,
-        validations: 'isEmail',
-        validationError: errorMessages.emailError,
-      },
-      {
-        formType: 'text',
-        inputType: 'tel',
-        name: 'contactNumber',
-        label: 'Company phone number',
-        hintText: '347-422-7242',
-        required: true,
-        validations: {matchRegexp: /^(\+)?([0-9]{0,2}?)(-| ?)(\()?([0-9]{3})(\)|-| |\)-|\) )?([0-9]{3})(-| )?([0-9]{4}|[0-9]{4})$/},
-        validationError: errorMessages.phoneError,
-      },
-      {
-        formType: 'text',
-        name: 'address',
-        label: 'Full Address, City & Zip code',
-        hintText: '225 Centre St. Boston MA, 02119',
-        required: false,
-        validations: {matchRegexp: /^[\s\S]{3,}/},
-        validationError: errorMessages.requiredError,
-      },
-      {
-        formType: 'autocomplete',
-        name: 'country',
-        label: 'Country',
-        hintText: 'United States',
-        required: true,
-        dataSource: countries
-      },
-      {
-        formType: 'radio',
-        name: 'coveredEntity',
-        label: 'Is your organization is a HIPAA covered entity?',
-        choices: [
-          {
-            label: `No`,
-            value: `no`,
-          },
-          {
-            label: `Yes`,
-            value: `yes`,
-          },
-        ]
-      },
-      {
-        showif: {
-          field: 'company-coveredEntity',
-          value: ['yes']
-        },
-        formType: 'text',
-        name: 'hipaaPolicyLink',
-        label: 'What is link for the product\'s full HIPAA Policy',
-        hintText: 'https://1uphealth.care/policy/hipaa',
-        required: false,
-        validations: 'isUrl',
-        validationError: errorMessages.urlError,
-      },
-      {
-        showif: {
-          field: 'company-coveredEntity',
-          value: ['yes']
-        },
-        formType: 'text',
-        name: 'product',
-        label: 'What is the name of the technology or product?',
-        hintText: '1upHealth Patient App',
-        required: false,
-        validations: {matchRegexp: /^[\s\S]{3,}/},
-        validationError: errorMessages.requiredError,
-      },
-      {
-        showif: {
-          field: 'company-coveredEntity',
-          value: ['yes']
-        },
-        formType: 'radio',
-        name: 'coveredEntityText',
-        label: 'Select one of the following statements to be inserted into the privacy notice:',
-        choices: [
-          {
-            value: `not_hipaa_protected`,
-            label: `Please note that the health data we collect as part of this [insert name of technology] are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply`
-          },
-          {
-            value: `hipaa_protected`,
-            label: `Some of the health data we collect as part of this [insert name of technology product] also are protected by HIPAA. Read our HIPAA Notice of Privacy Practices [embed link or popup] for more information.`
-          }
-        ]
-      }
-    ],
-  },
-  {
     id: 'data',
-    title: 'Data',
+    title: 'Data Use',
     questions: [
       {
         helper: 'Primary service',
@@ -327,6 +196,66 @@ let sections = [
     id: 'security',
     title: 'Security',
     questions: [
+      {
+        formType: 'radio',
+        name: 'coveredEntity',
+        label: 'Is your organization is a HIPAA covered entity?',
+        choices: [
+          {
+            label: `No`,
+            value: `no`,
+          },
+          {
+            label: `Yes`,
+            value: `yes`,
+          },
+        ]
+      },
+      {
+        showif: {
+          field: 'security-coveredEntity',
+          value: ['yes']
+        },
+        formType: 'text',
+        name: 'product',
+        label: 'What is the name of the technology or product?',
+        hintText: '1upHealth Patient App',
+        required: false,
+        validations: {matchRegexp: /^[\s\S]{3,}/},
+        validationError: errorMessages.requiredError,
+      },
+      {
+        showif: {
+          field: 'security-coveredEntity',
+          value: ['yes']
+        },
+        formType: 'radio',
+        name: 'coveredEntityText',
+        label: 'Select one of the following statements to be inserted into the privacy notice:',
+        choices: [
+          {
+            value: `not_hipaa_protected`,
+            label: `Please note that the health data we collect as part of this [insert name of technology] are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply`
+          },
+          {
+            value: `hipaa_protected`,
+            label: `Some of the health data we collect as part of this [insert name of technology product] also are protected by HIPAA. Read our HIPAA Notice of Privacy Practices [embed link or popup] for more information.`
+          }
+        ]
+      },
+      {
+        showif: {
+          field: 'security-coveredEntityText',
+          value: ['hipaa_protected']
+        },
+        formType: 'text',
+        name: 'hipaaPolicyLink',
+        label: 'What is link for the product\'s full HIPAA Policy',
+        hintText: 'https://1uphealth.care/policy/hipaa',
+        required: false,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
+      },
       {
         formType: 'radio',
         name: 'storeOndevice',
@@ -536,13 +465,11 @@ let sections = [
         },
         formType: 'text',
         name: 'privacyappsDevicesSetting',
-        label: 'Here is how you can check your settings, including permissions set as a default...',
-        hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
+        label: 'Link to how users check device settings, including default permissions',
+        hintText: 'https://1uphealth.care/help/device-permissions',
         required: true,
-        multiLine: true,
-        style: {marginTop: '-1rem', paddingTop: '1rem'},
-        validations: {},
-        validationError: errorMessages.isDefaultRequiredValue,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
       },
       {
         formType: 'radio',
@@ -571,13 +498,11 @@ let sections = [
           value: ['yes','permissioned']
         },
         name: 'privacyappsSetting',
-        label: 'Here is how you can check your settings, including permissions set as a default...',
-        hintText: 'Step 1) Click settings, Step 2) ... or visit the help center page http://1uphealth.care/help/permisisons',
+        label: 'Link to how users check social settings, including default permissions',
+        hintText: 'https://1uphealth.care/help/social-permissions',
         required: true,
-        multiLine: true,
-        style: {marginTop: '-1rem', paddingTop: '1rem'},
-        validations: {},
-        validationError: errorMessages.isDefaultRequiredValue,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
       },
     ]
   },
@@ -710,8 +635,8 @@ let sections = [
         name: 'useraccessNotification',
         header: 'Breach: How we will notify you and protect your data in case of an improper disclosure',
         helper: 'Describe how the company will protect consumers’ data in the case of a breach and provide link to section in privacy policy.',
-        label: 'Describe your company policy',
-        hintText: 'Describe how the company will protect consumers’ data in the case of a breach and provide link to section in privacy policy.',
+        label: 'Describe how the company will protect consumers’ data in the case of a breach.',
+        hintText: 'In the event of a breach, we will ...',
         required: true,
         multiLine: true,
         style: {marginTop: '-1rem', paddingTop: '1rem'},
@@ -728,6 +653,77 @@ let sections = [
         validationError: errorMessages.urlError,
       },
     ]
+  },
+  {
+    id: 'company',
+    title: 'Contact',
+    questions: [
+      {
+        helper: 'Basic Info',
+        formType: 'text',
+        name: 'legalName',
+        label: 'Legal entity name',
+        hintText: '1upHealth, Inc.',
+        required: true,
+        validations: {},
+        validationError: errorMessages.requiredError,
+      },
+      {
+        formType: 'text',
+        name: 'privacyPolicyLink',
+        label: 'Link to full privacy policy',
+        hintText: 'https://1uphealth.care/privacy-policy',
+        required: true,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
+      },
+      {
+        helper: 'Contact',
+        formType: 'text',
+        name: 'contactLink',
+        label: 'Link to your online contact or comment form',
+        hintText: 'https://1uphealth.care/contact-us',
+        required: true,
+        validations: 'isUrl',
+        validationError: errorMessages.urlError,
+      },
+      {
+        formType: 'text',
+        name: 'email',
+        label: 'Company email address',
+        hintText: 'hello@1uphealth.care',
+        required: true,
+        validations: 'isEmail',
+        validationError: errorMessages.emailError,
+      },
+      {
+        formType: 'text',
+        inputType: 'tel',
+        name: 'contactNumber',
+        label: 'Company phone number',
+        hintText: '347-422-7242',
+        required: true,
+        validations: {matchRegexp: /^(\+)?([0-9]{0,2}?)(-| ?)(\()?([0-9]{3})(\)|-| |\)-|\) )?([0-9]{3})(-| )?([0-9]{4}|[0-9]{4})$/},
+        validationError: errorMessages.phoneError,
+      },
+      {
+        formType: 'text',
+        name: 'address',
+        label: 'Full Address, City & Zip code',
+        hintText: '225 Centre St. Boston MA, 02119',
+        required: false,
+        validations: {matchRegexp: /^[\s\S]{3,}/},
+        validationError: errorMessages.requiredError,
+      },
+      {
+        formType: 'autocomplete',
+        name: 'country',
+        label: 'Country',
+        hintText: 'United States',
+        required: true,
+        dataSource: countries
+      },
+    ],
   },
 ]
 
