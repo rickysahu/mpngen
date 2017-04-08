@@ -90,7 +90,10 @@ function styles (state) {
 function top (state) {
   return `
 # Welcome to the ${state['company-legalName'] || '[company-legalName]'} Privacy Notice 
-When you use ${state['company-legalName'] || '[company-legalName]'} services, you trust us with your information. This Privacy Policy is meant to help you understand what data we collect, why we collect it, and what we do with it. You can find the full [privacy policy here](${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"} target="_blank"). If you have questions you can reach us at [${state['company-email'] || "[company-email]"}](mailto:${state['company-email'] || "[company-email]"}).
+<div>When you use ${state['company-legalName'] || '[company-legalName]'} services, you trust us with your information. This Privacy Policy is meant to help you understand what data we collect, why we collect it, and what we do with it. You can find the full <a href='${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}' target='_blank'>privacy policy here</a> (${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}). If you have questions you can reach us at 
+<a href='mailto:${state['company-email'] || "[company-email]"}'>${state['company-email'] || "[company-email]"}</a>.
+
+</div> 
 `
 }
 
@@ -106,3 +109,18 @@ module.exports = {
   top: top,
   styles: styles,
 }
+
+
+
+// ### Privacy Notice Sections
+// [Use: How we use your data internally](#mpn-)  
+// [Share: How we share your data externally with other companies or entities](#mpn-)  
+// [Sell: Who we sell your data to](#mpn-)  
+// [Store: How we store your data](#mpn-)  
+// [Encryption: How we encrypt your data](#mpn-)  
+// [Privacy: How this technology accesses other data](#mpn-)  
+// [User Options: What you can do with the data that we collect](#mpn-)  
+// [Deactivation : What happens to your data when your account is deactivated](#mpn-)  
+// [Policy Changes: How we will notify you if our privacy policy changes](#mpn-)  
+// [Breach : How we will notify you and protect your data in case of an improper disclosure](#mpn-)  
+// [Contact Us](#mpn-)  

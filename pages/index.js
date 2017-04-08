@@ -61,7 +61,7 @@ export default class extends React.Component {
       sourceData += templates['header'].f(fullForm)
       sourceData += templates['security'].hipaa(fullForm)
       sourceData += templates['data'].f(fullForm)
-      sourceData += templates['security'].f(fullForm)
+      sourceData += templates['security'].nonhipaa(fullForm)
       sourceData += templates['user'].f(fullForm)
       sourceData += templates['company'].contact(fullForm)
       if(returnSource){

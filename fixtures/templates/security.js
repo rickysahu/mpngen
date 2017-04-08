@@ -19,7 +19,14 @@ function f (state) {
   if (typeof(state) === 'undefined'){
     state = {}
   }
-  return hipaa(state) + `  
+  return hipaa(state) + nonhipaa(state)
+}
+
+function nonhipaa (state) {
+  if (typeof(state) === 'undefined'){
+    state = {}
+  }
+  return `  
 <br></br>
 ## Store: How we store your data
 <table>
@@ -112,5 +119,6 @@ ${state['security-privacyappsDevices-camera'] ? '<li>Camera</li>' : ''} ${state[
 }
 module.exports = {
   hipaa: hipaa,
+  nonhipaa: nonhipaa,
   f: f
 }
