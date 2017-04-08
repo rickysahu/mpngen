@@ -1,5 +1,8 @@
-# mpn gen (by 1upHealth)
-
+# mpn gen (by [1upHealth](https://1uphealth.care))
+MPN GEN is a response to the USA Challenge.gov Healthcare Privacy Policy Snapshot Challenge.  
+  
+This is a stand-alone script which starts a Node.js application that can be used to generate and customize a Model Privacy Notice for health care developers.
+  
 ## Development
 ```
 npm install
@@ -12,7 +15,9 @@ npm install
 npm run build
 npm start
 ```
-
+  
+## Test out the app
+Open up a web browser and navigate to [http://localhost:3030](http://localhost:3030) to test the app
 
 ## Features
 
@@ -42,7 +47,7 @@ npm start
 [x] Question Schema controls all questions to be asked  
 [x] Tooltips in CSS for footnotes, so no external JS dependencies needed
 
-### User Feedback TODOs
+### User Feedback Fixes
 [x] improve style, reduce contrast of resulting mpn headers
 - tone down black background on headings
 [x] intro messaging

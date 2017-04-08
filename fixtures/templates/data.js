@@ -136,7 +136,7 @@ ${state['data-shareAnonymousDoYou'] == 'no' ? '- We DO NOT share your data after
         , marketing, advertising networks, or analytics firms.
       </strong>
     </td>
-    <td>${state['data-sell'] == 'yes' ? 'Yes' : '' } ${state['data-sell'] == 'no' ? 'No' : '' } ${state['data-sell'] == 'permissioned' ? `Yes; only <a href='${ state['data-sellPermissionLink'] || `[data-sellPermissionLink]`}'>with your permission</a> ` : '' }</td>
+    <td>${state['data-sell'] == 'yes' ? 'Yes' : '' } ${state['data-sell'] == 'no' ? 'No' : '' } ${state['data-sell'] == 'permissioned' ? `Yes; only <a target='_blank' href='${ state['data-sellPermissionLink'] || `[data-sellPermissionLink]`}'>with your permission</a> ` : '' }</td>
   </tr>
   <tr>
     <td><strong>We sell your data AFTER removing identifiers (note that remaining data may not be anonymous) to 
@@ -147,7 +147,7 @@ ${state['data-shareAnonymousDoYou'] == 'no' ? '- We DO NOT share your data after
       </div>
     </span>
     , marketing, advertising networks, or analytics firms.</strong></td>
-    <td>${state['data-sellAnonymous'] == 'yes' ? 'Yes' : '' } ${state['data-sellAnonymous'] == 'no' ? 'No' : '' } ${state['data-sellAnonymous'] == 'permissioned' ? `Yes; only <a href='${ state['data-sellAnonymousPermissionLink'] || `[data-sellAnonymousPermissionLink]`}'>with your permission</a> ` : '' }</td>
+    <td>${state['data-sellAnonymous'] == 'yes' ? 'Yes' : '' } ${state['data-sellAnonymous'] == 'no' ? 'No' : '' } ${state['data-sellAnonymous'] == 'permissioned' ? `Yes; only <a target='_blank' href='${ state['data-sellAnonymousPermissionLink'] || `[data-sellAnonymousPermissionLink]`}'>with your permission</a> ` : '' }</td>
   </tr>
 </table> 
 `

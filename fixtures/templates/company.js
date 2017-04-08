@@ -3,8 +3,8 @@ function contact (state) {
 <br></br>
 ## Contact Us
 ### ${state['company-legalName'] || '[company-legalName]'}
-[Privacy Policy](${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}) (${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"})  
-[Contact Page](${state['company-contactLink'] || "[company-contactLink]"}) (${state['company-contactLink'] || "[company-contactLink]"})  
+<div><a href='${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}' target='_blank'>Privacy Policy</a> (${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"})<br></div>
+<div><a href='${state['company-contactLink'] || "[company-contactLink]"}' target='_blank'>Contact Page</a> (${state['company-contactLink'] || "[company-contactLink]"})<br></div>
 [${state['company-email'] || "[company-email]"}](mailto:${state['company-email'] || "[company-email]"})  
 [${state['company-contactNumber'] || "[company-contactNumber]"}](tel:${state['company-contactNumber'] || "[company-contactNumber]"})  
 

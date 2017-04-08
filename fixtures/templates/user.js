@@ -35,7 +35,8 @@ function f (state) {
 
 ## Policy Changes: How we will notify you if our privacy policy changes
 ${state['user-useraccessPolicy'] ? state['user-useraccessPolicy'] : '[user-useraccessPolicy]' }
-${state['user-privacyPolicyChangeLink'] ? `<br>Find out more in the [Changes section of our Privacy Policy](${state['user-privacyPolicyChangeLink']}).` : '[user-privacyPolicyChangeLink]' }
+${state['user-privacyPolicyChangeLink'] ? 
+`<div>Find out more in the <a href='${state['user-privacyPolicyChangeLink'] || "[user-privacyPolicyChangeLink]"}' target='_blank'>Changes section of our Privacy Policy</a> (${state['user-privacyPolicyChangeLink'] || "[user-privacyPolicyChangeLink]"})<br></div>`: '[user-privacyPolicyChangeLink]' }
 <br></br>
 
 <h2>
@@ -49,7 +50,8 @@ ${state['user-privacyPolicyChangeLink'] ? `<br>Find out more in the [Changes sec
 ${state['company-legalName'] || 'Our company'} complies with all applicable laws regarding breaches.  
 ${state['user-useraccessNotification'] ? state['user-useraccessNotification'] : '[user-useraccessNotification]' }
 
-${state['user-privacyPolicyBreachLink'] ? `Find out more in the [Breach section of our Privacy Policy](${state['user-privacyPolicyBreachLink']}).` : '[user-privacyPolicyBreachLink]' }
+${state['user-privacyPolicyBreachLink'] ? 
+`<div>Find out more in the <a href='${state['user-privacyPolicyBreachLink'] || "[user-privacyPolicyBreachLink]"}' target='_blank'>Breach section of our Privacy Policy</a> (${state['user-privacyPolicyBreachLink'] || "[user-privacyPolicyBreachLink]"})<br></div>`: '[user-privacyPolicyBreachLink]' }
 `
 }
 module.exports = {

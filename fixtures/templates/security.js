@@ -9,7 +9,7 @@ ${state['security-coveredEntity'] == 'yes' ? `
 <br></br>
 ## ${state['company-legalName'] || 'Our company'} is a HIPAA Covered Entity
 ${state['security-coveredEntityText'] == 'not_hipaa_protected' ? `Please note that the health data we collect as part of this ${state['security-product'] || '[security-product]'} are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply` : ''}
-${state['security-coveredEntityText'] == 'hipaa_protected' ? `Some of the health data we collect as part of this ${state['security-product'] || '[security-product]'} also are protected by HIPAA. Read our [HIPAA Notice of Privacy Practices](${state['security-hipaaPolicyLink'] || "[security-hipaaPolicyLink]"}) for more information.` : ''}
+${state['security-coveredEntityText'] == 'hipaa_protected' ? `<div style="display:inline-block">Some of the health data we collect as part of this ${state['security-product'] || '[security-product]'} also are protected by HIPAA. Read our <a href='${state['security-hipaaPolicyLink'] || "[security-hipaaPolicyLink]"}' target='_blank'>HIPAA Notice of Privacy Practices</a> (${state['security-hipaaPolicyLink'] || "[security-hipaaPolicyLink]"}) for more information.</div>` : ''}
 ` : ''}
   
 `
@@ -53,7 +53,7 @@ function f (state) {
       </div>
     </div>    
     to encrypt your data in the device or app? </strong></td>
-    <td>${state['security-encryptDevice'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptDevice'] == 'no' ? 'No' : '' } ${typeof state['security-encryptDevice'] == 'undefined' ? 'N/A' : '' } ${state['security-encryptDevice'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptDeviceLink'] || `[security-encryptDeviceLink]`}'>click to learn how</a>)` : '' }</td>
+    <td>${state['security-encryptDevice'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptDevice'] == 'no' ? 'No' : '' } ${typeof state['security-encryptDevice'] == 'undefined' ? 'N/A' : '' } ${state['security-encryptDevice'] == 'steps' ? `Yes, when you take certain steps (<a target='_blank' href='${state['security-encryptDeviceLink'] || `[security-encryptDeviceLink]`}'>click to learn how</a>)` : '' }</td>
   </tr>
   <tr>
     <td><strong>Does the app or technology use 
@@ -71,7 +71,7 @@ function f (state) {
       </div>
     </div>    
     services provider?</strong></td>
-    <td>${state['security-encryptServer'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptServer'] == 'no' ? 'No' : '' } ${typeof state['security-encryptServer'] == 'undefined' ? 'N/A' : '' } ${state['security-encryptServer'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptServerLink'] || `[security-encryptServerLink]`}'>click to learn how</a>)` : '' }</td>
+    <td>${state['security-encryptServer'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptServer'] == 'no' ? 'No' : '' } ${typeof state['security-encryptServer'] == 'undefined' ? 'N/A' : '' } ${state['security-encryptServer'] == 'steps' ? `Yes, when you take certain steps (<a target='_blank' href='${state['security-encryptServerLink'] || `[security-encryptServerLink]`}'>click to learn how</a>)` : '' }</td>
   </tr>
   <tr>
     <td><strong>Does the app or technology use
@@ -82,7 +82,7 @@ function f (state) {
       </div>
     </div>    
     to encrypt your data while it is transmitted?</strong></td>
-    <td>${state['security-encryptTransmit'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptTransmit'] == 'no' ? 'No' : '' } ${state['security-encryptTransmit'] == 'na' ? 'N/A' : '' } ${state['security-encryptTransmit'] == 'steps' ? `Yes, when you take certain steps (<a href='${state['security-encryptTransmitLink'] || `[security-encryptTransmitLink]`}'>click to learn how</a>)` : '' }</td>
+    <td>${state['security-encryptTransmit'] == 'default' ? 'Yes, by default' : '' } ${state['security-encryptTransmit'] == 'no' ? 'No' : '' } ${state['security-encryptTransmit'] == 'na' ? 'N/A' : '' } ${state['security-encryptTransmit'] == 'steps' ? `Yes, when you take certain steps (<a target='_blank' href='${state['security-encryptTransmitLink'] || `[security-encryptTransmitLink]`}'>click to learn how</a>)` : '' }</td>
   </tr>
 </table> 
 <br></br>  
@@ -98,13 +98,13 @@ function f (state) {
 ${typeof state['security-privacyappsAccess'] !== 'undefined' && state['security-privacyappsAccess'] !== '' ? (state['security-privacyappsAccess'] == 'permissioned' ? `<td>
 <div>
   Yes, only with your permission. It connects to... 
-${state['security-privacyappsDevices-camera'] ? '<li>Camera</li>' : ''} ${state['security-privacyappsDevices-photo'] ? '<li>Photo</li>' : ''} ${state['security-privacyappsDevices-contacts'] ? '<li>Contacts</li>' : ''} ${state['security-privacyappsDevices-location'] ? '<li>Location</li>' : ''} ${state['security-privacyappsDevices-microphone'] ? '<li>Microphone</li>' : ''} ${state['security-privacyappsDevices-health'] ? '<li>Health monitoring devices</li>' : ''}  ${state['security-privacyappsDevices-other-text'] ? `<li>${state['security-privacyappsDevices-other-text']}</li>` : ''} ${state['security-privacyappsDevicesSetting'] ? `To check settings, visit our <a href='${state['security-privacyappsDevicesSetting']}'>help page</a>` : ''}
+${state['security-privacyappsDevices-camera'] ? '<li>Camera</li>' : ''} ${state['security-privacyappsDevices-photo'] ? '<li>Photo</li>' : ''} ${state['security-privacyappsDevices-contacts'] ? '<li>Contacts</li>' : ''} ${state['security-privacyappsDevices-location'] ? '<li>Location</li>' : ''} ${state['security-privacyappsDevices-microphone'] ? '<li>Microphone</li>' : ''} ${state['security-privacyappsDevices-health'] ? '<li>Health monitoring devices</li>' : ''}  ${state['security-privacyappsDevices-other-text'] ? `<li>${state['security-privacyappsDevices-other-text']}</li>` : ''} ${state['security-privacyappsDevicesSetting'] ? `To check settings, visit our <a target='_blank' href='${state['security-privacyappsDevicesSetting']}'>help page</a>` : ''}
 </div>
 </td>` : '<td>No</td>') : '<td></td>' }
   </tr>
   <tr>
     <td><strong>Does this technology or app allow you to share the collected data with your social media accounts, like Facebook?</strong></td>
-    <td>${state['security-privacyappsSocial'] == 'permissioned' ? `Yes, only with your permission. To check settings, visit our <a href='${state['security-privacyappsSetting']}'>help page</a>` : '' }${state['security-privacyappsSocial'] == 'yes' ? `Yes,<br>${state['security-privacyappsSetting'] ? `To check settings, visit our <a href='${state['security-privacyappsSetting']}'>help page</a>` : ''}` : '' } ${state['security-privacyappsSocial'] == 'no' ? 'No' : '' }</td>
+    <td>${state['security-privacyappsSocial'] == 'permissioned' ? `Yes, only with your permission. To check settings, visit our <a target='_blank' href='${state['security-privacyappsSetting']}'>help page</a>` : '' }${state['security-privacyappsSocial'] == 'yes' ? `Yes,<br>${state['security-privacyappsSetting'] ? `To check settings, visit our <a target='_blank' href='${state['security-privacyappsSetting']}'>help page</a>` : ''}` : '' } ${state['security-privacyappsSocial'] == 'no' ? 'No' : '' }</td>
   </tr>
 </table>
 
