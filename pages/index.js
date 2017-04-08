@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
@@ -73,31 +74,6 @@ export default class extends React.Component {
     return <ExportBar sourceData={sourceData} jsonData={this.state}/>
 
   }
-  // <div style={{width: '100%', textAlign: 'center'}}>
-  //   <br /><br />
-  //   <MuiThemeProvider muiTheme={getMuiTheme()}>
-  //   <Paper style={{
-  //     margin: '2rem .5rem',
-  //     textAlign: 'left',
-  //     display: 'inline-block',
-  //     maxWidth: 950,
-  //     minWidth: 300,
-  //     padding: '1rem 2rem',
-  //   }}>
-  //     <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -2rem 2rem -2rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#dedede'}}>
-  //       <ToolbarGroup>
-  //         <ToolbarTitle text={'Preview Full Privacy Notice'} />
-  //       </ToolbarGroup>
-  //     </Toolbar>
-  //     <ReactMarkdown source={sourceData}/>
-  //   </Paper>
-  //   </MuiThemeProvider>
-  // </div>
-
-
-  // shouldComponentUpdate({children}, nextState){
-  //   return this.props.children !== children;
-  // }
 
   static getInitialprops ({req}) {
     return {server: req ? true : false}
@@ -105,6 +81,10 @@ export default class extends React.Component {
 
   render () {
     return <div style={{fontFamily: 'system-ui, Roboto, Helvetica, Sans-Serif', lineHeight: '1.5rem'}}>
+      <Head>
+        <meta name="viewport" content="width=device-width, user-scalable=no"/>
+        <meta name="description" content="MPN GEN - 1upHealth Healthcare Model Privacy Notice Generator"/>
+      </Head>
       <div style={{textAlign:'center'}}>
         <h1 >MPN GEN (1upHealth)</h1>
         <h1 style={{lineHeight: '2rem'}}>{`Let's Build Your Privacy Notice`}</h1>

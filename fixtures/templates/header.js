@@ -89,10 +89,11 @@ function styles (state) {
 
 function top (state) {
   return `
-# Welcome to the ${state['company-legalName'] || '[company-legalName]'} Privacy Notice 
-<div>When you use ${state['company-legalName'] || '[company-legalName]'} services, you trust us with your information. This Privacy Policy is meant to help you understand what data we collect, why we collect it, and what we do with it. You can find the full <a href='${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}' target='_blank'>privacy policy here</a> (${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}). If you have questions you can reach us at 
-<a href='mailto:${state['company-email'] || "[company-email]"}'>${state['company-email'] || "[company-email]"}</a>.
-
+# ${state['company-legalName'] || '[company-legalName]'} Model Privacy Notice 
+**Note:** Developers of consumer health technology or apps (“health technology developers”) that collect 
+digital health data about individuals would use this template to disclose to consumers the developer’s 
+privacy and security policies. **"We"** refers to the health technology developer or technology product and 
+**"you/your"** refers to the user/consumer of the health technology. 
 </div> 
 `
 }
@@ -124,3 +125,6 @@ module.exports = {
 // [Policy Changes: How we will notify you if our privacy policy changes](#mpn-)  
 // [Breach : How we will notify you and protect your data in case of an improper disclosure](#mpn-)  
 // [Contact Us](#mpn-)  
+// <div>When you use ${state['company-legalName'] || '[company-legalName]'} services, you trust us with your information. This Privacy Policy is meant to help you understand what data we collect, why we collect it, and what we do with it. You can find the full <a href='${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}' target='_blank'>privacy policy here</a> (${state['company-privacyPolicyLink'] || "[company-privacyPolicyLink]"}). If you have questions you can reach us at 
+// <a href='mailto:${state['company-email'] || "[company-email]"}'>${state['company-email'] || "[company-email]"}</a>.
+// 

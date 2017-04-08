@@ -8,6 +8,7 @@ This is a stand-alone script which starts a Node.js application that can be used
 npm install
 npm run dev
 ```
+note: you may need to use `sudo` for these commands
 
 ## Production
 ```
@@ -15,6 +16,7 @@ npm install
 npm run build
 npm start
 ```
+note: you may need to use `sudo` for these commands
   
 ## Test out the app
 Open up a web browser and navigate to [http://localhost:3030](http://localhost:3030) to test the app
