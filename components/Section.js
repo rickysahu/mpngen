@@ -48,10 +48,6 @@ let styles = {
 
 export default class extends React.Component {
 
-  // shouldComponentUpdate({children}, nextState){
-  //   return this.props.children !== children;
-  // }
-
   getMyData () {
     this.setState({formData: this.refs.form.getModel()});
   }
@@ -66,7 +62,6 @@ export default class extends React.Component {
     Object.keys(answers).map(function(input){
       let qName = input.split('-')[1]
       let value = answers[input]
-      console.log(input,value)
       if (typeof questionValid[qName] === 'undefined' || questionValid[qName] === false) {
         if (typeof value === 'boolean') {
           questionValid[qName] = value
@@ -77,34 +72,52 @@ export default class extends React.Component {
         }
       }
     }.bind(this))
-    console.log(questionValid)
-    return Array.from(new Set(Object.keys(questionValid).map(function(k){if(questionValid[k] === false){return k}}))).filter(f=>f)
+    let unansweredCheckboxes = Array.from(new Set(Object.keys(questionValid).map(function(k){if(questionValid[k] === false){return k}}))).filter(f=>f)
+    Object.keys(answers).map(function(fieldName){
+      if(answers[fieldName] === '' && fieldName.indexOf('other') === -1 && fieldName.indexOf('-') === -1){
+        unansweredCheckboxes.push(fieldName)
+      }
+    })
+    return unansweredCheckboxes
   }
 
   enableButton() {
     this.getMyData()
     let invalidQuestions = this.getInvalidQuestions(this.refs.form.getModel())
-    console.log(invalidQuestions)
+    // console.log(invalidQuestions)
     if (invalidQuestions.length === 0){
       let stateForParent = {form: this.refs.form.getModel(), canSubmit: true}
       this.props.setParentState(this.props.id, stateForParent)
-      this.setState({canSubmit: true});
+      this.setState({canSubmit: true, invalidQuestions: invalidQuestions});
     } else {
       let stateForParent = {form: this.refs.form.getModel(), canSubmit: false}
       this.props.setParentState(this.props.id, stateForParent)
-      this.setState({canSubmit: false})
+      this.setState({canSubmit: false, invalidQuestions: invalidQuestions})
     }
   }
 
   disableButton() {
     this.getMyData()
+    let invalidQuestions = this.getInvalidQuestions(this.refs.form.getModel())
     if (this.state.canSubmit) {
       let stateForParent = {form: this.refs.form.getModel(), canSubmit: false}
       this.props.setParentState(this.props.id, stateForParent)
     }
     this.setState({
       canSubmit: false,
+      invalidQuestions: invalidQuestions
     });
+  }
+
+  getColorOfField(fieldName) {
+    // console.log(this.state.invalidQuestions)
+    if(typeof this.state.invalidQuestions === 'undefined' || this.state.invalidQuestions.length > 3) {
+      return '#fff'
+    } else if (this.state.invalidQuestions.indexOf(fieldName) >= 0 && this.state.invalidQuestions.length < 3) {
+      return '#ffdada'
+    } else {
+      return '#fff'      
+    }
   }
 
   constructor (props) {
@@ -144,7 +157,7 @@ export default class extends React.Component {
                   }
                 }
                 if(["text", "email"].indexOf(q.formType) >= 0) {
-                  return <div>
+                  return <div style={{backgroundColor: this.getColorOfField(q.name), padding: '.0rem .1rem', transition: 'background 1s linear'}}>
                     {q.header ? <div style={styles.questionHeader}><span><br />{q.header}</span></div> : <span></span> }
                     {q.helper ? <h4 style={{marginBottom: '0px', lineHeight: '1.5rem'}}>{q.helper}</h4> : <span></span> }
                     <FormsyText
@@ -170,10 +183,11 @@ export default class extends React.Component {
                     dataSource={q.dataSource}
                     fullWidth={true}
                     openOnFocus={true}
+                    style={{backgroundColor: this.getColorOfField(q.name), padding: '.0rem .1rem', transition: 'background 1s linear'}}
                     filter={AutoComplete.fuzzyFilter}
                     floatingLabelText={q.label} />
                 } else if (q.formType === "radio") {
-                  return <div>
+                  return <div style={{backgroundColor: this.getColorOfField(q.name), padding: '0rem .1rem', transition: 'background 1s linear'}}>
                     <div style={styles.questionHeader}>{q.header ? <span><br />{q.header}</span> : ''}</div>
                     <h4 style={{lineHeight: '1.5rem'}}>{q.label}</h4>
                     <FormsyRadioGroup
@@ -190,7 +204,7 @@ export default class extends React.Component {
                       </FormsyRadioGroup>
                     </div>
                 } else if (q.formType === "checkbox") {
-                  return <div>
+                  return <div style={{backgroundColor: this.getColorOfField(q.name), padding: '0rem .1rem', transition: 'background 1s linear'}}>
                     <div style={styles.questionHeader}>{q.header ? <span><br />{q.header}</span> : ''}</div>
                     <h4 style={{lineHeight: '1.5rem'}}>{q.label}</h4>
                     {q.choices.map(function(choice){

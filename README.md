@@ -44,6 +44,7 @@ Open up a web browser and navigate to [http://localhost:3030](http://localhost:3
 [x] Autocomplete country selector  
 [x] Header changes to green when valid data  
 [x] Do not share automatically removes share options  
+[x] Highlight incomplete questions   
 
 ### State
 [x] Display responses as JSON  
