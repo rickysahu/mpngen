@@ -3,23 +3,32 @@ MPN GEN is a response to the USA Challenge.gov Healthcare Privacy Policy Snapsho
   
 This is a stand-alone script which starts a Node.js application that can be used to generate and customize a Model Privacy Notice for health care developers.
   
-## Development
+## Run the app
+note: you may need to use `sudo` for these commands
+
+### Development
 ```
 npm install
 npm run dev
 ```
-note: you may need to use `sudo` for these commands
 
-## Production
+### Production
 ```
 npm install
 npm run build
 npm start
 ```
-note: you may need to use `sudo` for these commands
   
 ## Test out the app
 Open up a web browser and navigate to [http://localhost:3030](http://localhost:3030) to test the app
+
+## Supporting materials
+[Demo](http://52.25.246.230:6008/)
+[Video](https://www.youtube.com/watch?v=FZHUed5iMKQ)
+[Slide Deck](https://docs.google.com/presentation/d/1k5XS8OvlzkaK39YAhI97qUdZDjLRrBFvCEUFsNiLHLc/)
+
+
+
 
 ## Features
 
@@ -40,8 +49,6 @@ Open up a web browser and navigate to [http://localhost:3030](http://localhost:3
 [x] Display responses as JSON  
 [x] Styles in header of MPN are easy to change  
 [x] Export as JSON  
-[ ] Save using local storage on refresh  
-
 
 ### Questions
 [x] Conditional questions appear only when needed  

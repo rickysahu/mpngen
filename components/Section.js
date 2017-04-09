@@ -143,7 +143,7 @@ export default class extends React.Component {
                     return ''
                   }
                 }
-                if(q.formType === "text") {
+                if(["text", "email"].indexOf(q.formType) >= 0) {
                   return <div>
                     {q.header ? <div style={styles.questionHeader}><span><br />{q.header}</span></div> : <span></span> }
                     {q.helper ? <h4 style={{marginBottom: '0px', lineHeight: '1.5rem'}}>{q.helper}</h4> : <span></span> }

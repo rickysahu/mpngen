@@ -267,11 +267,11 @@ let sections = [
         choices: [
           {
             value: `not_hipaa_protected`,
-            label: `Please note that the health data we collect as part of this [insert name of technology] are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply`
+            label: `Please note that the health data we collect as part of this technology are not protected by HIPAA and our company's HIPAA Notice of Privacy Practices does not apply`
           },
           {
             value: `hipaa_protected`,
-            label: `Some of the health data we collect as part of this [insert name of technology product] also are protected by HIPAA. Read our HIPAA Notice of Privacy Practices [embed link or popup] for more information.`
+            label: `Some of the health data we collect as part of this technology also are protected by HIPAA. Read our HIPAA Notice of Privacy Practices for more information.`
           }
         ]
       },
@@ -724,7 +724,7 @@ let sections = [
         validationError: errorMessages.urlError,
       },
       {
-        formType: 'text',
+        formType: 'email',
         name: 'email',
         label: 'Company email address',
         hintText: 'hello@1uphealth.care',
