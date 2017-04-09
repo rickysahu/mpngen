@@ -4,6 +4,7 @@ import Head from 'next/head'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
+import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
@@ -85,21 +86,52 @@ export default class extends React.Component {
         <meta name="viewport" content="width=device-width, user-scalable=no"/>
         <meta name="description" content="MPN GEN - 1upHealth Healthcare Model Privacy Notice Generator"/>
       </Head>
-      <div style={{textAlign:'center'}}>
-        <h1 >MPN GEN (1upHealth)</h1>
+      <div style={{backgroundColor: '#3dace3', color:'#fff', width: '100%', textAlign:'center'}}>
+        <div style={{ width: '90%', padding: '1rem'}}>
+          <span style={{color: '#fff', float:'left', fontWeight: 600, fontSize:'2rem'}}href="">MPN GEN</span>
+          <span style={{color: '#fff'}}href="">&nbsp;</span>
+          <span style={{color: '#fff', float:'right'}} >&nbsp;&nbsp;<a href="mpngen" style={{color: '#fff'}}>Build MPN</a></span>
+          <span style={{color: '#fff', float:'right'}} >&nbsp;&nbsp;<a href="https://github.com/rickysahu/mpngen" style={{color: '#fff'}}>GitHub</a>&nbsp;&nbsp;</span>
+        </div>
+      </div>
+      <div style={{textAlign:'center', margin: '8px'}}>
+        <br />
         <h1 style={{lineHeight: '2rem'}}>{`Let's Build Your Privacy Notice`}</h1>
         <div style={{textAlign: 'center', display:'block', width: '100%'}}>
-          <div style={{textAlign: 'left', display:'inline-block', maxWidth: '600'}}>
-            Welcome to the <a href='https://1uphealth.care'>1upHealth</a> Model Privacy Notice Generator (mpn gen). This project is a response to the USA Challenge.gov Healthcare Privacy Policy Snapshot Challenge.
-            <br /><br />
-            MPN GEN will help you create a Privacy Notice for consumers of your healthcare app, company, or organization. It has many features including form validation, multi-device friendly layout, and helpful user experience to guide users through the process. The left side presents inputs for the Model Privacy Notice. The right side shows snippets of the output. You can learn <a href='/'>more about the features here</a>. 
-            <h3>To get started <a href='#mpngen'>jump right into the form</a> or read on for more background.</h3>
+          <div style={{textAlign: 'left', fontSize: '1.25rem', lineHeight:'2rem', display:'inline-block', maxWidth: '900'}}>
+            <div>Welcome to the <a href='https://1uphealth.care'>1upHealth</a> Model Privacy Notice Generator (mpn gen). This project is a response to the USA Challenge.gov Healthcare Privacy Policy Snapshot Challenge.</div>
             <br />
-            <h3>MPN GEN Video</h3>
-            <img src='./static/mpn-gen.gif' width='100%' style={{border: '1px solid #eee', borderRadius: '3px'}}/>
-            <h1>2016 Model Privacy Notice</h1>
-            <h2>Draft Preamble</h2>
-            <h3>As of December 2, 2016</h3>
+            <div>
+              <MuiThemeProvider muiTheme={getMuiTheme({palette: {primary1Color: '#3dace3'}})}>
+                <div style={{textAlign:'center'}}>
+                  <a href='#mpngen'><RaisedButton primary={true} label="Build Your Privacy Notice" /></a>&nbsp;
+                </div>
+              </MuiThemeProvider>
+            </div>
+            <br />
+            <div className='half' style={{display: 'inline-block', verticalAlign:'top'}}>
+              <h3>{`What's MPN GEN?`}</h3>
+              MPN GEN will help you create a Privacy Notice for consumers of your healthcare app, company, or organization. It has many features including form validation, multi-device friendly layout, and helpful user experience. The left side presents inputs for the Model Privacy Notice. The right side shows snippets of the output.  
+            </div>
+            <img className='half' style={{display: 'inline-block'}} src='./static/sides.png' />
+            <br />
+            <br />
+            <div className='half' style={{display: 'inline-block', verticalAlign:'top'}}>
+              <h3>MPN GEN Video</h3>
+              <img src='./static/mpn-gen.gif' width='100%' style={{border: '1px solid #eee', borderRadius: '3px'}}/>
+            </div>
+            <div className='half' style={{display: 'inline-block', paddingTop:'1.3rem'}}>
+              <MuiThemeProvider muiTheme={getMuiTheme({palette: {primary1Color: '#3dace3'}})}>
+                <div style={{textAlign:'center'}}>
+                  <a href='./static/sample.html' target='_blank'><RaisedButton primary={true} label="See an Example Notice" /></a>&nbsp;
+                  <br/>
+                  <div style={{textAlign:'left', padding:'1rem'}}>
+                  MPN GEN will provide you a default styled privacy notice which you can <a href='./static/sample.html' target='_blank'>see here</a>. By filling out <a href='#mpngen'>the form</a>, MPN GEN will customize the the content of the Privacy Notice to your organization. User testing has shown simpler privacy notice formats are most desireable to healthcare consumers.
+                  </div>
+                </div>
+              </MuiThemeProvider>              
+            </div>
+            <h2>Preamble</h2>
             The Model Privacy Notice (MPN) is a voluntary, openly available resource designed to help health technology developers provide transparent notice to consumers about what happens to their digital health data when the consumer uses the developer’s product. The MPN’s approach is to provide a standardized, easy-to-use framework to help developers clearly convey information about privacy and security to their users. The MPN does not mandate specific policies or substitute for more comprehensive or detailed privacy policies. 
             <br/>
             <br/>

@@ -135,7 +135,7 @@ export default class extends React.Component {
     return <div style={{width: '100%', display: 'inline-block', textAlign:'center'}}>
       <div id={this.props.id}></div>
       <div>
-        <MuiThemeProvider muiTheme={getMuiTheme()}>
+        <MuiThemeProvider muiTheme={getMuiTheme({palette: {primary1Color: '#3dace3'}})}>
           <Formsy.Form
             onValid={this.enableButton.bind(this)}
             onInvalid={this.disableButton.bind(this)}
@@ -247,7 +247,7 @@ export default class extends React.Component {
         </MuiThemeProvider>
         <div style={{display: 'inline-block', fontSize: '.8rem'}}>
           <br /><br />
-          <MuiThemeProvider muiTheme={getMuiTheme()}>
+          <MuiThemeProvider muiTheme={getMuiTheme({palette: {primary1Color: '#3dace3'}})}>
             <Paper style={styles.paperMDStyle}>
               <Toolbar style={{borderRadius: '2px 2px 0px 0px',margin: '-1rem -1rem 0rem -1rem',backgroundColor: this.state.canSubmit ? '#7fda85' : '#eee'}}>
                 <ToolbarGroup>

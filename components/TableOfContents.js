@@ -47,7 +47,7 @@ export default class extends React.Component {
         </strong>
       </div>
       <div id="sticky-holder" style={{display:'none', height:'3rem'}}>&nbsp;</div>
-      <div id="sticky" style={{ marginLeft:'-10px', padding: '1rem .5rem', position: 'relative', width: '100%', top:0, backgroundColor: '#fff', zIndex: 100}}>
+      <div id="sticky" style={{ marginLeft:'-20px', padding: '1rem .5rem', position: 'relative', width: '100%', top:0, backgroundColor: '#fff', zIndex: 100}}>
       {formdata.map(function(section){
         let parentSection = this.props.parentState[section.id]
         let canSubmit = false

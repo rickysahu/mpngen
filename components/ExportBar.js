@@ -68,7 +68,7 @@ export default class extends React.Component {
 
     return (
       <div style={{width: '100%', textAlign: 'center'}}>
-        <MuiThemeProvider muiTheme={getMuiTheme()}>
+        <MuiThemeProvider muiTheme={getMuiTheme({palette: {primary1Color: '#3dace3'}})}>
           <div>
             <div>
               <h1>Export Privacy Notice As</h1>

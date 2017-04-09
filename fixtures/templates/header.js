@@ -1,6 +1,11 @@
 function styles (state) {
   return `
 <style>
+  body {
+    margin: 0px;
+    font-family: system-ui, Roboto, Helvetica, sans-serif;
+    line-height: 1.5rem;
+  }
   h2 {
     color: #3dace3;
     font-weight: 400;
@@ -12,13 +17,10 @@ function styles (state) {
     color: #3dace3;
   }
 
-  .mpn: {
-    font-family: "Times New Roman", Georgia, Serif;
-  }
-
   /* Table styles */
   table {
-    border-collapse: collapse
+    width: 100%;
+    border-collapse: collapse;
   }
   th, td {
     padding: 1.5rem;
@@ -81,6 +83,18 @@ function styles (state) {
     visibility: visible;
     opacity: 1;
   }  
+  
+  .half {
+    display: inline-block;
+    width:49%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .half {
+      display: inline-block;
+      width: 100%;
+    }
+  }
   
 </style>
   
