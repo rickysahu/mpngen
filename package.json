@@ -1,9 +1,11 @@
 {
-  "engines" : { "node" : ">=6.9.4" },
-  "license" : "MIT",
-  "repository" : { 
-    "type" : "git",
-    "url" : "https://github.com/rickysahu/mpngen"
+  "engines": {
+    "node": ">=6.9.4"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rickysahu/mpngen"
   },
   "scripts": {
     "dev": "next -p 3030",
@@ -14,7 +16,7 @@
     "formsy-material-ui": "=0.5.5",
     "formsy-react": "=0.19.2",
     "material-ui": "=0.17.1",
-    "next": "=2.0.1",
+    "next": "=2.2.0",
     "react": "15.4.2",
     "react-dom": "=15.4.2",
     "react-markdown": "=2.4.6",
