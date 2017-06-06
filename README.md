@@ -23,7 +23,7 @@ npm start
 Open up a web browser and navigate to [http://localhost:3030](http://localhost:3030) to test the app
 
 ## Supporting materials
-[Demo](https://1uphealth.care/dev/model-privacy-notice/)  
+[Demo](https://1uphealth.care/products/model-privacy-notice)  
 [Video](https://www.youtube.com/watch?v=FZHUed5iMKQ)  
 [Slide Deck](https://docs.google.com/presentation/d/1k5XS8OvlzkaK39YAhI97qUdZDjLRrBFvCEUFsNiLHLc/)  
 
