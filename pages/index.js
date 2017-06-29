@@ -142,7 +142,7 @@ export default class extends React.Component {
             <h3>Who is the MPN for?</h3>
             The MPN is for health technology developers whose technology or app uses and/or {`shares users' `} 
             <div className="tooltip">
-              health data
+              health data.
               <div className="tooltiptext">
                 {footnotes.healthData}
               </div>

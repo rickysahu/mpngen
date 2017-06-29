@@ -22,6 +22,9 @@ npm start
 ## Test out the app
 Open up a web browser and navigate to [http://localhost:3030](http://localhost:3030) to test the app
 
+## Browser Support
+MPN GEN works on the latest versions of Firefox, Chrome, MS Edge, and Safari as of 7/29/2017.
+
 ## Supporting materials
 [Demo](https://1uphealth.care/products/model-privacy-notice)  
 [Video](https://www.youtube.com/watch?v=FZHUed5iMKQ)  
